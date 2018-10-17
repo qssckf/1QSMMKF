@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Manifest>
+  <BusinessComponet name="so" dispname="so">
+    <public>
+      <src name="src/public"/>
+    </public>
+    <client>
+      <src name="src/client"/>
+    </client>
+    <private>
+      <src name="src/private"/>
+    </private>
+    <test>
+      <src name="src/test"/>
+    </test>
+    <resource>
+      <src name="resources"/>
+    </resource>
+    <funnodes>
+      <funnode name="发货申请单" code="4006200301" funnode="so/ace/client/4006200301.fnf" service="so/ace/service/4006200301.smf"/>
+    </funnodes>
+  </BusinessComponet>
+</Manifest>

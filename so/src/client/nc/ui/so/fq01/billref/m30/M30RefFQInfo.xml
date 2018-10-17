@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<bean id="refInfo" class="nc.ui.pubapp.billref.src.RefInfo">
+		<property name="userdefitemListPreparator" ref="userdefitemListPreparator" />
+		<property name="singleUserdefitemListPreparator" ref="singleUserdefitemListPreparator" />
+
+		
+	</bean>
+	
+	<bean id="singleUserdefitemListPreparator" class="nc.ui.pubapp.uif2app.view.CompositeBillListDataPrepare">
+		<property name="billListDataPrepares">
+			<list>
+				<ref bean="singleListPreparator" />
+				<ref bean="marAsstPreparator" />
+			</list>
+		</property>
+	</bean>
+	
+	<bean name="singleListPreparator" class="nc.ui.uif2.editor.UserdefitemContainerListPreparator">
+		<property name="container" ref="userdefitemContainer" />
+		<property name="params">
+			<list>
+				<bean class="nc.ui.uif2.editor.UserdefQueryParam"> 
+					<property name="mdfullname" value="38_H" /> 
+					<property name="pos" value="0" /> 
+					<property name="prefix" value="vdef" />
+				</bean>
+				<bean class="nc.ui.uif2.editor.UserdefQueryParam"> 
+					<property name="mdfullname" value="38_B" /> 
+					<property name="pos" value="0" /> 
+					<property name="prefix" value="vbdef" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="userdefitemListPreparator" class="nc.ui.pubapp.uif2app.view.CompositeBillListDataPrepare">
+		<property name="billListDataPrepares">
+			<list>
+				<ref bean="listPreparator" />
+				<ref bean="marAsstPreparator" />
+			</list>
+		</property>
+	</bean>
+	
+	<bean name="listPreparator" class="nc.ui.uif2.editor.UserdefitemContainerListPreparator">
+		<property name="container" ref="userdefitemContainer" />
+		<property name="params">
+			<list>
+				<bean class="nc.ui.uif2.editor.UserdefQueryParam"> 
+					<property name="mdfullname" value="38_H" /> 
+					<property name="pos" value="0" /> 
+					<property name="prefix" value="vdef" />
+				</bean>
+				<bean class="nc.ui.uif2.editor.UserdefQueryParam"> 
+					<property name="mdfullname" value="38_B" /> 
+					<property name="pos" value="1" /> 
+					<property name="prefix" value="vbdef" /> 
+					<property name="tabcode" value="body" />
+				</bean> 
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="marAsstPreparator" class="nc.ui.pubapp.billref.push.MarAsstBillRefPushPreparator">
+		<property name="container" ref="userdefitemContainer" /> 
+		<property name="prefix" value="vfree" /> 
+		<property name="projectField" value="cprojectid" />
+		<property name="supplierField" value="cvendorid" />
+		<property name="productorField" value="cproductorid" />
+	</bean>
+	
+	<bean id="userdefitemContainer" class="nc.ui.pubapp.billref.src.editor.BillRefUserDefItemContainer">
+		<property name="params">
+			<list>
+				<bean class="nc.ui.uif2.userdefitem.QueryParam"> 
+					<property name="mdfullname" value="38_H" />
+				</bean>
+				<bean class="nc.ui.uif2.userdefitem.QueryParam"> 
+					<property name="mdfullname" value="38_B" />
+				</bean>
+				<bean class="nc.ui.uif2.userdefitem.QueryParam">
+					<property name="rulecode" value="materialassistant" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+</beans>
+
