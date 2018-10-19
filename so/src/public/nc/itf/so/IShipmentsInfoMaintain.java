@@ -23,4 +23,6 @@ public interface IShipmentsInfoMaintain {
     public AggShipmentsVO[] approve(AggShipmentsVO[] clientFullVOs,AggShipmentsVO[] originBills) throws BusinessException ;
 
     public AggShipmentsVO[] unapprove(AggShipmentsVO[] clientFullVOs,AggShipmentsVO[] originBills) throws BusinessException ;
+    
+    public AggShipmentsVO[] queryShipmentsFor30(IQueryScheme paramIQueryScheme) throws BusinessException;
 }

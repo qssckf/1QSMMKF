@@ -11,6 +11,7 @@ import nc.ui.uif2.UIState;
 import nc.ui.uif2.model.AbstractAppModel;
 import nc.vo.jcom.lang.StringUtil;
 import nc.vo.scmpub.res.billtype.SOBillType;
+import nc.vo.so.m30.entity.SaleOrderVO;
 
 public class SaleOrderAddFromFQ01Action extends AbstractReferenceAction{
 	
@@ -39,6 +40,12 @@ public class SaleOrderAddFromFQ01Action extends AbstractReferenceAction{
 		// TODO 自动生成的方法存根
 		
 		PfUtilClient.childButtonClickedNew(createPfButtonClickContext());
+		
+		if (PfUtilClient.isCloseOK()) {
+			 SaleOrderVO[] vos = (SaleOrderVO[])PfUtilClient.getRetVos();
+			 
+			 getTransferViewProcessor().processBillTransfer(vos);
+		}
 		
 		
 		

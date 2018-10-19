@@ -2606,7 +2606,7 @@
 /* 2589 */     return bean;
 /*      */   }
 /*      */   
-/* 2592 */   private List getManagedList36() { List list = new java.util.ArrayList();list.add(getAddManualAction());list.add(getSeparatorAction());list.add(getAddZ3Action());list.add(getAdd4310Action());list.add(getAdd38Action());list.add(getAdd4HAction());return list;
+/* 2592 */   private List getManagedList36() { List list = new java.util.ArrayList();list.add(getAddManualAction());list.add(getSeparatorAction());list.add(getAddZ3Action());list.add(getAdd4310Action());list.add(getAdd38Action());list.add(getAdd4HAction());list.add(getAddFQ01Action());return list;
 /*      */   }
 /*      */   
 /* 2595 */   public nc.funcnode.ui.action.MenuAction getBrowAstActionGroup() { if (this.context.get("browAstActionGroup") != null)
