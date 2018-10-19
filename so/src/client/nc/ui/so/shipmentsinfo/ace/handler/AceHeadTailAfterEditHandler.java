@@ -11,9 +11,13 @@ import nc.vo.so.qs.sc.ShipmentsVO;
  * @author duy
  */
 public class AceHeadTailAfterEditHandler implements IAppEventHandler<CardHeadTailAfterEditEvent> {
-
+	
+	public AceHeadTailAfterEditHandler(){}
+	
     @Override
     public void handleAppEvent(CardHeadTailAfterEditEvent e) {
+    	
+    	
     }
 
 }

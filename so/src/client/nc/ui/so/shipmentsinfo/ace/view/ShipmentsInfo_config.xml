@@ -83,12 +83,12 @@
 				<bean class="nc.ui.uif2.editor.UserdefQueryParam">
 					<property name="mdfullname" value="so.ShipmentsVO" />
 					<property name="pos" value="0" />
-					<property name="prefix" value="vdef" />
+					<property name="prefix" value="def" />
 				</bean>	
 				<bean class="nc.ui.uif2.editor.UserdefQueryParam">
 					<property name="mdfullname" value="so.ShipmentsBVO" />
 					<property name="pos" value="1" />
-					<property name="prefix" value="vbdef" />
+					<property name="prefix" value="def" />
 					<property name="tabcode" value="ShipmentsBVO" />
 				</bean>	
 			</list>
@@ -99,6 +99,7 @@
         <property name="model" ref="manageAppModel"></property>
         <property name="templateContainer" ref="templateContainer" />
         <property name="showOrgPanel" value="true" />
+        <property name="blankChildrenFilter" ref="blankChildrenFilter" />
 		<!-- 是否自动增行 -->
         <property name="autoAddLine" value="true" />
 		<!-- 表体行操作按钮注册，与表体右键菜单保持一致 -->
@@ -291,7 +292,9 @@
 					<property name="event" value="nc.ui.pubapp.uif2app.event.card.CardBodyBeforeEditEvent" />
 					<property name="picky" ref="childrenPicky" />
 					<property name="handler">
-						<bean class="nc.ui.so.shipmentsinfo.ace.handler.AceBodyBeforeEditHandler" />
+						<bean class="nc.ui.so.shipmentsinfo.ace.handler.AceBodyBeforeEditHandler" >
+							<property name="editor" ref="billFormEditor" />
+						</bean>
 					</property>
 				</bean>
 
@@ -300,7 +303,9 @@
 					<property name="event" value="nc.ui.pubapp.uif2app.event.card.CardBodyAfterEditEvent" />
 					<property name="picky" ref="childrenPicky" />
 					<property name="handler">
-						<bean class="nc.ui.so.shipmentsinfo.ace.handler.AceBodyAfterEditHandler" />
+						<bean class="nc.ui.so.shipmentsinfo.ace.handler.AceBodyAfterEditHandler" >
+							<property name="editor" ref="billFormEditor" />
+						</bean>
 					</property>
 				</bean>
 
@@ -708,4 +713,26 @@
 		</property>
 	</bean>
     
+    	<!-- 简单的根据一个字段是否为空的空行过滤器，因为多数情况下都是判断存货是否为空来过滤空行 -->
+	<bean id="blankChildrenFilter"
+		class="nc.ui.pubapp.uif2app.view.value.MultiFieldsBlankChildrenFilter">
+		<property name="nullAssertByOr" value="false" />
+		<property name="filterMap">
+			<map>
+				<entry>
+					<key>
+						<value>body</value>
+					</key>
+					<list>
+						<value>cmaterialid</value>
+						<value>cateralvid</value>
+					</list>
+				</entry>
+			</map>
+		</property>
+	</bean>
+    
+    
 </beans>
+
+

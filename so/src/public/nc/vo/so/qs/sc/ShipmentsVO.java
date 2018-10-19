@@ -70,6 +70,18 @@ public String cdeptvid;
 */
 public String cemployeeid;
 /**
+*开票客户
+*/
+public String cinvoicecustid;
+/**
+*币种
+*/
+public String corigcurrencyid;
+/**
+*收款协议
+*/
+public String cpaytermid;
+/**
 *创建时间
 */
 public UFDateTime creationtime;
@@ -77,6 +89,10 @@ public UFDateTime creationtime;
 *创建人
 */
 public String creator;
+/**
+*运输方式
+*/
+public String ctransporttypeid;
 /**
 *单据日期
 */
@@ -189,6 +205,18 @@ public UFDateTime modifiedtime;
 *修改人
 */
 public String modifier;
+/**
+*整单折扣
+*/
+public UFDouble ndiscountrate;
+/**
+*价税合计
+*/
+public UFDouble nheadsummny;
+/**
+*总数量
+*/
+public UFDouble ntotalnum;
 /**
 *集团
 */
@@ -514,6 +542,60 @@ this.cemployeeid=cemployeeid;
  } 
 
 /** 
+* 获取开票客户
+*
+* @return 开票客户
+*/
+public String getCinvoicecustid () {
+return this.cinvoicecustid;
+ } 
+
+/** 
+* 设置开票客户
+*
+* @param cinvoicecustid 开票客户
+*/
+public void setCinvoicecustid ( String cinvoicecustid) {
+this.cinvoicecustid=cinvoicecustid;
+ } 
+
+/** 
+* 获取币种
+*
+* @return 币种
+*/
+public String getCorigcurrencyid () {
+return this.corigcurrencyid;
+ } 
+
+/** 
+* 设置币种
+*
+* @param corigcurrencyid 币种
+*/
+public void setCorigcurrencyid ( String corigcurrencyid) {
+this.corigcurrencyid=corigcurrencyid;
+ } 
+
+/** 
+* 获取收款协议
+*
+* @return 收款协议
+*/
+public String getCpaytermid () {
+return this.cpaytermid;
+ } 
+
+/** 
+* 设置收款协议
+*
+* @param cpaytermid 收款协议
+*/
+public void setCpaytermid ( String cpaytermid) {
+this.cpaytermid=cpaytermid;
+ } 
+
+/** 
 * 获取创建时间
 *
 * @return 创建时间
@@ -547,6 +629,24 @@ return this.creator;
 */
 public void setCreator ( String creator) {
 this.creator=creator;
+ } 
+
+/** 
+* 获取运输方式
+*
+* @return 运输方式
+*/
+public String getCtransporttypeid () {
+return this.ctransporttypeid;
+ } 
+
+/** 
+* 设置运输方式
+*
+* @param ctransporttypeid 运输方式
+*/
+public void setCtransporttypeid ( String ctransporttypeid) {
+this.ctransporttypeid=ctransporttypeid;
  } 
 
 /** 
@@ -1053,6 +1153,60 @@ return this.modifier;
 */
 public void setModifier ( String modifier) {
 this.modifier=modifier;
+ } 
+
+/** 
+* 获取整单折扣
+*
+* @return 整单折扣
+*/
+public UFDouble getNdiscountrate () {
+return this.ndiscountrate;
+ } 
+
+/** 
+* 设置整单折扣
+*
+* @param ndiscountrate 整单折扣
+*/
+public void setNdiscountrate ( UFDouble ndiscountrate) {
+this.ndiscountrate=ndiscountrate;
+ } 
+
+/** 
+* 获取价税合计
+*
+* @return 价税合计
+*/
+public UFDouble getNheadsummny () {
+return this.nheadsummny;
+ } 
+
+/** 
+* 设置价税合计
+*
+* @param nheadsummny 价税合计
+*/
+public void setNheadsummny ( UFDouble nheadsummny) {
+this.nheadsummny=nheadsummny;
+ } 
+
+/** 
+* 获取总数量
+*
+* @return 总数量
+*/
+public UFDouble getNtotalnum () {
+return this.ntotalnum;
+ } 
+
+/** 
+* 设置总数量
+*
+* @param ntotalnum 总数量
+*/
+public void setNtotalnum ( UFDouble ntotalnum) {
+this.ntotalnum=ntotalnum;
  } 
 
 /** 
