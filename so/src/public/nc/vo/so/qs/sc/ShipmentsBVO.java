@@ -78,6 +78,10 @@ public String cprofitcenterid;
 */
 public String cprofitcentervid;
 /**
+*报价单位
+*/
+public static final String CQTUNITID="cqtunitid";
+/**
 *收货地址
 */
 public String creceiveaddrid;
@@ -402,6 +406,10 @@ public static final String NQTTAXNETPRICE="nqttaxnetprice";
 */
 public static final String NQTTAXPRICE="nqttaxprice";
 /**
+*报价单位数量
+*/
+public static final String NQTUNITNUM="nqtunitnum";
+/**
 *税额
 */
 public UFDouble ntax;
@@ -525,6 +533,10 @@ public String vfree8;
 *自由辅助属性9
 */
 public String vfree9;
+/**
+*报价换算率
+*/
+public static final String VQTUNITRATE="vqtunitrate";
 /**
 *来源单据号
 */
@@ -845,6 +857,24 @@ return this.cprofitcentervid;
 */
 public void setCprofitcentervid ( String cprofitcentervid) {
 this.cprofitcentervid=cprofitcentervid;
+ } 
+
+/** 
+* 获取报价单位
+*
+* @return 报价单位
+*/
+public String getCqtunitid () {
+return (String) this.getAttributeValue( ShipmentsBVO.CQTUNITID);
+ } 
+
+/** 
+* 设置报价单位
+*
+* @param cqtunitid 报价单位
+*/
+public void setCqtunitid ( String cqtunitid) {
+this.setAttributeValue( ShipmentsBVO.CQTUNITID,cqtunitid);
  } 
 
 /** 
@@ -2308,6 +2338,24 @@ this.setAttributeValue( ShipmentsBVO.NQTTAXPRICE,nqttaxprice);
  } 
 
 /** 
+* 获取报价单位数量
+*
+* @return 报价单位数量
+*/
+public UFDouble getNqtunitnum () {
+return (UFDouble) this.getAttributeValue( ShipmentsBVO.NQTUNITNUM);
+ } 
+
+/** 
+* 设置报价单位数量
+*
+* @param nqtunitnum 报价单位数量
+*/
+public void setNqtunitnum ( UFDouble nqtunitnum) {
+this.setAttributeValue( ShipmentsBVO.NQTUNITNUM,nqtunitnum);
+ } 
+
+/** 
 * 获取税额
 *
 * @return 税额
@@ -2863,6 +2911,24 @@ return this.vfree9;
 */
 public void setVfree9 ( String vfree9) {
 this.vfree9=vfree9;
+ } 
+
+/** 
+* 获取报价换算率
+*
+* @return 报价换算率
+*/
+public String getVqtunitrate () {
+return (String) this.getAttributeValue( ShipmentsBVO.VQTUNITRATE);
+ } 
+
+/** 
+* 设置报价换算率
+*
+* @param vqtunitrate 报价换算率
+*/
+public void setVqtunitrate ( String vqtunitrate) {
+this.setAttributeValue( ShipmentsBVO.VQTUNITRATE,vqtunitrate);
  } 
 
 /** 
