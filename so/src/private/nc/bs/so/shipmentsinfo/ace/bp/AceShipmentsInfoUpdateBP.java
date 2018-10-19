@@ -49,7 +49,7 @@ public class AceShipmentsInfoUpdateBP {
 		rule = new nc.bs.pubapp.pub.rule.FieldLengthCheckRule();
 				    				   				   				    				     				    				   				    				      				       processer.addBeforeRule(rule);
 		rule = new nc.impl.pubapp.bd.material.assistant.MarAssistantSaveRule();
-		((nc.impl.pubapp.bd.material.assistant.MarAssistantSaveRule)rule).setNotNullValidate("cateralvid");
+		((nc.impl.pubapp.bd.material.assistant.MarAssistantSaveRule)rule).setNotNullValidate("cmaterialvid");
 		processer.addBeforeRule(rule);
 	}
 

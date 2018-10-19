@@ -30,13 +30,13 @@ public String carorgvid;
 */
 public String carrangeid;
 /**
-*辅单位
+*单位
 */
 public String castunitid;
 /**
-*产品编码
+*本位币
 */
-public String cateralvid;
+public String ccurrencyid;
 /**
 *源头单据子表
 */
@@ -49,6 +49,14 @@ public String cfirstid;
 *物料档案
 */
 public String cmaterialid;
+/**
+*产品编码
+*/
+public String cmaterialvid;
+/**
+*币种
+*/
+public String corigcurrencyid;
 /**
 *价格项目
 */
@@ -117,6 +125,10 @@ public String csrcbid;
 *来源单据主表
 */
 public String csrcid;
+/**
+*税码
+*/
+public String ctaxcodeid;
 /**
 *物流组织最新版本
 */
@@ -254,19 +266,91 @@ public UFDouble mixtureprice;
 */
 public UFDouble narrnum;
 /**
-*辅数量
+*询价无税净价
+*/
+public static final String NASKQTORIGNETPRICE="naskqtorignetprice";
+/**
+*询价无税单价
+*/
+public static final String NASKQTORIGPRICE="naskqtorigprice";
+/**
+*询价含税单价
+*/
+public static final String NASKQTORIGTAXPRC="naskqtorigtaxprc";
+/**
+*询价含税净价
+*/
+public static final String NASKQTORIGTXNTPRC="naskqtorigtxntprc";
+/**
+*数量
 */
 public UFDouble nastnum;
+/**
+*计税金额
+*/
+public static final String NCALTAXMNY="ncaltaxmny";
+/**
+*本币折扣额
+*/
+public static final String NDISCOUNT="ndiscount";
+/**
+*整单折扣
+*/
+public UFDouble ndiscountrate;
+/**
+*全局本位币汇率
+*/
+public static final String NGLOBALEXCHGRATE="nglobalexchgrate";
+/**
+*全局本币无税金额
+*/
+public static final String NGLOBALMNY="nglobalmny";
+/**
+*全局本币价税合计
+*/
+public static final String NGLOBALTAXMNY="nglobaltaxmny";
+/**
+*集团本位币汇率
+*/
+public static final String NGROUPEXCHGRATE="ngroupexchgrate";
+/**
+*集团本币无税金额
+*/
+public static final String NGROUPMNY="ngroupmny";
+/**
+*集团本币价税合计
+*/
+public static final String NGROUPTAXMNY="ngrouptaxmny";
+/**
+*单品折扣
+*/
+public UFDouble nitemdiscountrate;
+/**
+*本币无税金额
+*/
+public static final String NMNY="nmny";
+/**
+*主本币无税净价
+*/
+public static final String NNETPRICE="nnetprice";
 /**
 *主数量
 */
 public UFDouble nnum;
 /**
+*折扣额
+*/
+public UFDouble norigdiscount;
+/**
 *无税金额
 */
 public UFDouble norigmny;
 /**
-*无税单价
+*主无税净价
+*/
+public UFDouble norignetprice;
+/**
+*主无税单价
 */
 public UFDouble norigprice;
 /**
@@ -274,21 +358,65 @@ public UFDouble norigprice;
 */
 public UFDouble norigtaxmny;
 /**
-*含税单价
+*主含税净价
+*/
+public UFDouble norigtaxnetprice;
+/**
+*主含税单价
 */
 public UFDouble norigtaxprice;
 /**
-*辅无税单价
+*主本币无税单价
+*/
+public static final String NPRICE="nprice";
+/**
+*本币无税净价
+*/
+public static final String NQTNETPRICE="nqtnetprice";
+/**
+*无税净价
+*/
+public UFDouble nqtorignetprice;
+/**
+*无税单价
 */
 public UFDouble nqtorigprice;
 /**
-*辅含税单价
+*含税净价
+*/
+public UFDouble nqtorigtaxnetprc;
+/**
+*含税单价
 */
 public UFDouble nqtorigtaxprice;
+/**
+*本币无税单价
+*/
+public static final String NQTPRICE="nqtprice";
+/**
+*本币含税净价
+*/
+public static final String NQTTAXNETPRICE="nqttaxnetprice";
+/**
+*本币含税单价
+*/
+public static final String NQTTAXPRICE="nqttaxprice";
 /**
 *税额
 */
 public UFDouble ntax;
+/**
+*本币价税合计
+*/
+public static final String NTAXMNY="ntaxmny";
+/**
+*主本币含税净价
+*/
+public static final String NTAXNETPRICE="ntaxnetprice";
+/**
+*主本币含税单价
+*/
+public static final String NTAXPRICE="ntaxprice";
 /**
 *税率
 */
@@ -504,39 +632,39 @@ this.carrangeid=carrangeid;
  } 
 
 /** 
-* 获取辅单位
+* 获取单位
 *
-* @return 辅单位
+* @return 单位
 */
 public String getCastunitid () {
 return this.castunitid;
  } 
 
 /** 
-* 设置辅单位
+* 设置单位
 *
-* @param castunitid 辅单位
+* @param castunitid 单位
 */
 public void setCastunitid ( String castunitid) {
 this.castunitid=castunitid;
  } 
 
 /** 
-* 获取产品编码
+* 获取本位币
 *
-* @return 产品编码
+* @return 本位币
 */
-public String getCateralvid () {
-return this.cateralvid;
+public String getCcurrencyid () {
+return this.ccurrencyid;
  } 
 
 /** 
-* 设置产品编码
+* 设置本位币
 *
-* @param cateralvid 产品编码
+* @param ccurrencyid 本位币
 */
-public void setCateralvid ( String cateralvid) {
-this.cateralvid=cateralvid;
+public void setCcurrencyid ( String ccurrencyid) {
+this.ccurrencyid=ccurrencyid;
  } 
 
 /** 
@@ -591,6 +719,42 @@ return this.cmaterialid;
 */
 public void setCmaterialid ( String cmaterialid) {
 this.cmaterialid=cmaterialid;
+ } 
+
+/** 
+* 获取产品编码
+*
+* @return 产品编码
+*/
+public String getCmaterialvid () {
+return this.cmaterialvid;
+ } 
+
+/** 
+* 设置产品编码
+*
+* @param cmaterialvid 产品编码
+*/
+public void setCmaterialvid ( String cmaterialvid) {
+this.cmaterialvid=cmaterialvid;
+ } 
+
+/** 
+* 获取币种
+*
+* @return 币种
+*/
+public String getCorigcurrencyid () {
+return this.corigcurrencyid;
+ } 
+
+/** 
+* 设置币种
+*
+* @param corigcurrencyid 币种
+*/
+public void setCorigcurrencyid ( String corigcurrencyid) {
+this.corigcurrencyid=corigcurrencyid;
  } 
 
 /** 
@@ -897,6 +1061,24 @@ return this.csrcid;
 */
 public void setCsrcid ( String csrcid) {
 this.csrcid=csrcid;
+ } 
+
+/** 
+* 获取税码
+*
+* @return 税码
+*/
+public String getCtaxcodeid () {
+return this.ctaxcodeid;
+ } 
+
+/** 
+* 设置税码
+*
+* @param ctaxcodeid 税码
+*/
+public void setCtaxcodeid ( String ctaxcodeid) {
+this.ctaxcodeid=ctaxcodeid;
  } 
 
 /** 
@@ -1514,21 +1696,309 @@ this.narrnum=narrnum;
  } 
 
 /** 
-* 获取辅数量
+* 获取询价无税净价
 *
-* @return 辅数量
+* @return 询价无税净价
+*/
+public UFDouble getNaskqtorignetprice () {
+return (UFDouble) this.getAttributeValue( ShipmentsBVO.NASKQTORIGNETPRICE);
+ } 
+
+/** 
+* 设置询价无税净价
+*
+* @param naskqtorignetprice 询价无税净价
+*/
+public void setNaskqtorignetprice ( UFDouble naskqtorignetprice) {
+this.setAttributeValue( ShipmentsBVO.NASKQTORIGNETPRICE,naskqtorignetprice);
+ } 
+
+/** 
+* 获取询价无税单价
+*
+* @return 询价无税单价
+*/
+public UFDouble getNaskqtorigprice () {
+return (UFDouble) this.getAttributeValue( ShipmentsBVO.NASKQTORIGPRICE);
+ } 
+
+/** 
+* 设置询价无税单价
+*
+* @param naskqtorigprice 询价无税单价
+*/
+public void setNaskqtorigprice ( UFDouble naskqtorigprice) {
+this.setAttributeValue( ShipmentsBVO.NASKQTORIGPRICE,naskqtorigprice);
+ } 
+
+/** 
+* 获取询价含税单价
+*
+* @return 询价含税单价
+*/
+public UFDouble getNaskqtorigtaxprc () {
+return (UFDouble) this.getAttributeValue( ShipmentsBVO.NASKQTORIGTAXPRC);
+ } 
+
+/** 
+* 设置询价含税单价
+*
+* @param naskqtorigtaxprc 询价含税单价
+*/
+public void setNaskqtorigtaxprc ( UFDouble naskqtorigtaxprc) {
+this.setAttributeValue( ShipmentsBVO.NASKQTORIGTAXPRC,naskqtorigtaxprc);
+ } 
+
+/** 
+* 获取询价含税净价
+*
+* @return 询价含税净价
+*/
+public UFDouble getNaskqtorigtxntprc () {
+return (UFDouble) this.getAttributeValue( ShipmentsBVO.NASKQTORIGTXNTPRC);
+ } 
+
+/** 
+* 设置询价含税净价
+*
+* @param naskqtorigtxntprc 询价含税净价
+*/
+public void setNaskqtorigtxntprc ( UFDouble naskqtorigtxntprc) {
+this.setAttributeValue( ShipmentsBVO.NASKQTORIGTXNTPRC,naskqtorigtxntprc);
+ } 
+
+/** 
+* 获取数量
+*
+* @return 数量
 */
 public UFDouble getNastnum () {
 return this.nastnum;
  } 
 
 /** 
-* 设置辅数量
+* 设置数量
 *
-* @param nastnum 辅数量
+* @param nastnum 数量
 */
 public void setNastnum ( UFDouble nastnum) {
 this.nastnum=nastnum;
+ } 
+
+/** 
+* 获取计税金额
+*
+* @return 计税金额
+*/
+public UFDouble getNcaltaxmny () {
+return (UFDouble) this.getAttributeValue( ShipmentsBVO.NCALTAXMNY);
+ } 
+
+/** 
+* 设置计税金额
+*
+* @param ncaltaxmny 计税金额
+*/
+public void setNcaltaxmny ( UFDouble ncaltaxmny) {
+this.setAttributeValue( ShipmentsBVO.NCALTAXMNY,ncaltaxmny);
+ } 
+
+/** 
+* 获取本币折扣额
+*
+* @return 本币折扣额
+*/
+public UFDouble getNdiscount () {
+return (UFDouble) this.getAttributeValue( ShipmentsBVO.NDISCOUNT);
+ } 
+
+/** 
+* 设置本币折扣额
+*
+* @param ndiscount 本币折扣额
+*/
+public void setNdiscount ( UFDouble ndiscount) {
+this.setAttributeValue( ShipmentsBVO.NDISCOUNT,ndiscount);
+ } 
+
+/** 
+* 获取整单折扣
+*
+* @return 整单折扣
+*/
+public UFDouble getNdiscountrate () {
+return this.ndiscountrate;
+ } 
+
+/** 
+* 设置整单折扣
+*
+* @param ndiscountrate 整单折扣
+*/
+public void setNdiscountrate ( UFDouble ndiscountrate) {
+this.ndiscountrate=ndiscountrate;
+ } 
+
+/** 
+* 获取全局本位币汇率
+*
+* @return 全局本位币汇率
+*/
+public UFDouble getNglobalexchgrate () {
+return (UFDouble) this.getAttributeValue( ShipmentsBVO.NGLOBALEXCHGRATE);
+ } 
+
+/** 
+* 设置全局本位币汇率
+*
+* @param nglobalexchgrate 全局本位币汇率
+*/
+public void setNglobalexchgrate ( UFDouble nglobalexchgrate) {
+this.setAttributeValue( ShipmentsBVO.NGLOBALEXCHGRATE,nglobalexchgrate);
+ } 
+
+/** 
+* 获取全局本币无税金额
+*
+* @return 全局本币无税金额
+*/
+public UFDouble getNglobalmny () {
+return (UFDouble) this.getAttributeValue( ShipmentsBVO.NGLOBALMNY);
+ } 
+
+/** 
+* 设置全局本币无税金额
+*
+* @param nglobalmny 全局本币无税金额
+*/
+public void setNglobalmny ( UFDouble nglobalmny) {
+this.setAttributeValue( ShipmentsBVO.NGLOBALMNY,nglobalmny);
+ } 
+
+/** 
+* 获取全局本币价税合计
+*
+* @return 全局本币价税合计
+*/
+public UFDouble getNglobaltaxmny () {
+return (UFDouble) this.getAttributeValue( ShipmentsBVO.NGLOBALTAXMNY);
+ } 
+
+/** 
+* 设置全局本币价税合计
+*
+* @param nglobaltaxmny 全局本币价税合计
+*/
+public void setNglobaltaxmny ( UFDouble nglobaltaxmny) {
+this.setAttributeValue( ShipmentsBVO.NGLOBALTAXMNY,nglobaltaxmny);
+ } 
+
+/** 
+* 获取集团本位币汇率
+*
+* @return 集团本位币汇率
+*/
+public UFDouble getNgroupexchgrate () {
+return (UFDouble) this.getAttributeValue( ShipmentsBVO.NGROUPEXCHGRATE);
+ } 
+
+/** 
+* 设置集团本位币汇率
+*
+* @param ngroupexchgrate 集团本位币汇率
+*/
+public void setNgroupexchgrate ( UFDouble ngroupexchgrate) {
+this.setAttributeValue( ShipmentsBVO.NGROUPEXCHGRATE,ngroupexchgrate);
+ } 
+
+/** 
+* 获取集团本币无税金额
+*
+* @return 集团本币无税金额
+*/
+public UFDouble getNgroupmny () {
+return (UFDouble) this.getAttributeValue( ShipmentsBVO.NGROUPMNY);
+ } 
+
+/** 
+* 设置集团本币无税金额
+*
+* @param ngroupmny 集团本币无税金额
+*/
+public void setNgroupmny ( UFDouble ngroupmny) {
+this.setAttributeValue( ShipmentsBVO.NGROUPMNY,ngroupmny);
+ } 
+
+/** 
+* 获取集团本币价税合计
+*
+* @return 集团本币价税合计
+*/
+public UFDouble getNgrouptaxmny () {
+return (UFDouble) this.getAttributeValue( ShipmentsBVO.NGROUPTAXMNY);
+ } 
+
+/** 
+* 设置集团本币价税合计
+*
+* @param ngrouptaxmny 集团本币价税合计
+*/
+public void setNgrouptaxmny ( UFDouble ngrouptaxmny) {
+this.setAttributeValue( ShipmentsBVO.NGROUPTAXMNY,ngrouptaxmny);
+ } 
+
+/** 
+* 获取单品折扣
+*
+* @return 单品折扣
+*/
+public UFDouble getNitemdiscountrate () {
+return this.nitemdiscountrate;
+ } 
+
+/** 
+* 设置单品折扣
+*
+* @param nitemdiscountrate 单品折扣
+*/
+public void setNitemdiscountrate ( UFDouble nitemdiscountrate) {
+this.nitemdiscountrate=nitemdiscountrate;
+ } 
+
+/** 
+* 获取本币无税金额
+*
+* @return 本币无税金额
+*/
+public UFDouble getNmny () {
+return (UFDouble) this.getAttributeValue( ShipmentsBVO.NMNY);
+ } 
+
+/** 
+* 设置本币无税金额
+*
+* @param nmny 本币无税金额
+*/
+public void setNmny ( UFDouble nmny) {
+this.setAttributeValue( ShipmentsBVO.NMNY,nmny);
+ } 
+
+/** 
+* 获取主本币无税净价
+*
+* @return 主本币无税净价
+*/
+public UFDouble getNnetprice () {
+return (UFDouble) this.getAttributeValue( ShipmentsBVO.NNETPRICE);
+ } 
+
+/** 
+* 设置主本币无税净价
+*
+* @param nnetprice 主本币无税净价
+*/
+public void setNnetprice ( UFDouble nnetprice) {
+this.setAttributeValue( ShipmentsBVO.NNETPRICE,nnetprice);
  } 
 
 /** 
@@ -1550,6 +2020,24 @@ this.nnum=nnum;
  } 
 
 /** 
+* 获取折扣额
+*
+* @return 折扣额
+*/
+public UFDouble getNorigdiscount () {
+return this.norigdiscount;
+ } 
+
+/** 
+* 设置折扣额
+*
+* @param norigdiscount 折扣额
+*/
+public void setNorigdiscount ( UFDouble norigdiscount) {
+this.norigdiscount=norigdiscount;
+ } 
+
+/** 
 * 获取无税金额
 *
 * @return 无税金额
@@ -1568,18 +2056,36 @@ this.norigmny=norigmny;
  } 
 
 /** 
-* 获取无税单价
+* 获取主无税净价
 *
-* @return 无税单价
+* @return 主无税净价
+*/
+public UFDouble getNorignetprice () {
+return this.norignetprice;
+ } 
+
+/** 
+* 设置主无税净价
+*
+* @param norignetprice 主无税净价
+*/
+public void setNorignetprice ( UFDouble norignetprice) {
+this.norignetprice=norignetprice;
+ } 
+
+/** 
+* 获取主无税单价
+*
+* @return 主无税单价
 */
 public UFDouble getNorigprice () {
 return this.norigprice;
  } 
 
 /** 
-* 设置无税单价
+* 设置主无税单价
 *
-* @param norigprice 无税单价
+* @param norigprice 主无税单价
 */
 public void setNorigprice ( UFDouble norigprice) {
 this.norigprice=norigprice;
@@ -1604,57 +2110,201 @@ this.norigtaxmny=norigtaxmny;
  } 
 
 /** 
-* 获取含税单价
+* 获取主含税净价
 *
-* @return 含税单价
+* @return 主含税净价
+*/
+public UFDouble getNorigtaxnetprice () {
+return this.norigtaxnetprice;
+ } 
+
+/** 
+* 设置主含税净价
+*
+* @param norigtaxnetprice 主含税净价
+*/
+public void setNorigtaxnetprice ( UFDouble norigtaxnetprice) {
+this.norigtaxnetprice=norigtaxnetprice;
+ } 
+
+/** 
+* 获取主含税单价
+*
+* @return 主含税单价
 */
 public UFDouble getNorigtaxprice () {
 return this.norigtaxprice;
  } 
 
 /** 
-* 设置含税单价
+* 设置主含税单价
 *
-* @param norigtaxprice 含税单价
+* @param norigtaxprice 主含税单价
 */
 public void setNorigtaxprice ( UFDouble norigtaxprice) {
 this.norigtaxprice=norigtaxprice;
  } 
 
 /** 
-* 获取辅无税单价
+* 获取主本币无税单价
 *
-* @return 辅无税单价
+* @return 主本币无税单价
+*/
+public UFDouble getNprice () {
+return (UFDouble) this.getAttributeValue( ShipmentsBVO.NPRICE);
+ } 
+
+/** 
+* 设置主本币无税单价
+*
+* @param nprice 主本币无税单价
+*/
+public void setNprice ( UFDouble nprice) {
+this.setAttributeValue( ShipmentsBVO.NPRICE,nprice);
+ } 
+
+/** 
+* 获取本币无税净价
+*
+* @return 本币无税净价
+*/
+public UFDouble getNqtnetprice () {
+return (UFDouble) this.getAttributeValue( ShipmentsBVO.NQTNETPRICE);
+ } 
+
+/** 
+* 设置本币无税净价
+*
+* @param nqtnetprice 本币无税净价
+*/
+public void setNqtnetprice ( UFDouble nqtnetprice) {
+this.setAttributeValue( ShipmentsBVO.NQTNETPRICE,nqtnetprice);
+ } 
+
+/** 
+* 获取无税净价
+*
+* @return 无税净价
+*/
+public UFDouble getNqtorignetprice () {
+return this.nqtorignetprice;
+ } 
+
+/** 
+* 设置无税净价
+*
+* @param nqtorignetprice 无税净价
+*/
+public void setNqtorignetprice ( UFDouble nqtorignetprice) {
+this.nqtorignetprice=nqtorignetprice;
+ } 
+
+/** 
+* 获取无税单价
+*
+* @return 无税单价
 */
 public UFDouble getNqtorigprice () {
 return this.nqtorigprice;
  } 
 
 /** 
-* 设置辅无税单价
+* 设置无税单价
 *
-* @param nqtorigprice 辅无税单价
+* @param nqtorigprice 无税单价
 */
 public void setNqtorigprice ( UFDouble nqtorigprice) {
 this.nqtorigprice=nqtorigprice;
  } 
 
 /** 
-* 获取辅含税单价
+* 获取含税净价
 *
-* @return 辅含税单价
+* @return 含税净价
+*/
+public UFDouble getNqtorigtaxnetprc () {
+return this.nqtorigtaxnetprc;
+ } 
+
+/** 
+* 设置含税净价
+*
+* @param nqtorigtaxnetprc 含税净价
+*/
+public void setNqtorigtaxnetprc ( UFDouble nqtorigtaxnetprc) {
+this.nqtorigtaxnetprc=nqtorigtaxnetprc;
+ } 
+
+/** 
+* 获取含税单价
+*
+* @return 含税单价
 */
 public UFDouble getNqtorigtaxprice () {
 return this.nqtorigtaxprice;
  } 
 
 /** 
-* 设置辅含税单价
+* 设置含税单价
 *
-* @param nqtorigtaxprice 辅含税单价
+* @param nqtorigtaxprice 含税单价
 */
 public void setNqtorigtaxprice ( UFDouble nqtorigtaxprice) {
 this.nqtorigtaxprice=nqtorigtaxprice;
+ } 
+
+/** 
+* 获取本币无税单价
+*
+* @return 本币无税单价
+*/
+public UFDouble getNqtprice () {
+return (UFDouble) this.getAttributeValue( ShipmentsBVO.NQTPRICE);
+ } 
+
+/** 
+* 设置本币无税单价
+*
+* @param nqtprice 本币无税单价
+*/
+public void setNqtprice ( UFDouble nqtprice) {
+this.setAttributeValue( ShipmentsBVO.NQTPRICE,nqtprice);
+ } 
+
+/** 
+* 获取本币含税净价
+*
+* @return 本币含税净价
+*/
+public UFDouble getNqttaxnetprice () {
+return (UFDouble) this.getAttributeValue( ShipmentsBVO.NQTTAXNETPRICE);
+ } 
+
+/** 
+* 设置本币含税净价
+*
+* @param nqttaxnetprice 本币含税净价
+*/
+public void setNqttaxnetprice ( UFDouble nqttaxnetprice) {
+this.setAttributeValue( ShipmentsBVO.NQTTAXNETPRICE,nqttaxnetprice);
+ } 
+
+/** 
+* 获取本币含税单价
+*
+* @return 本币含税单价
+*/
+public UFDouble getNqttaxprice () {
+return (UFDouble) this.getAttributeValue( ShipmentsBVO.NQTTAXPRICE);
+ } 
+
+/** 
+* 设置本币含税单价
+*
+* @param nqttaxprice 本币含税单价
+*/
+public void setNqttaxprice ( UFDouble nqttaxprice) {
+this.setAttributeValue( ShipmentsBVO.NQTTAXPRICE,nqttaxprice);
  } 
 
 /** 
@@ -1673,6 +2323,60 @@ return this.ntax;
 */
 public void setNtax ( UFDouble ntax) {
 this.ntax=ntax;
+ } 
+
+/** 
+* 获取本币价税合计
+*
+* @return 本币价税合计
+*/
+public UFDouble getNtaxmny () {
+return (UFDouble) this.getAttributeValue( ShipmentsBVO.NTAXMNY);
+ } 
+
+/** 
+* 设置本币价税合计
+*
+* @param ntaxmny 本币价税合计
+*/
+public void setNtaxmny ( UFDouble ntaxmny) {
+this.setAttributeValue( ShipmentsBVO.NTAXMNY,ntaxmny);
+ } 
+
+/** 
+* 获取主本币含税净价
+*
+* @return 主本币含税净价
+*/
+public UFDouble getNtaxnetprice () {
+return (UFDouble) this.getAttributeValue( ShipmentsBVO.NTAXNETPRICE);
+ } 
+
+/** 
+* 设置主本币含税净价
+*
+* @param ntaxnetprice 主本币含税净价
+*/
+public void setNtaxnetprice ( UFDouble ntaxnetprice) {
+this.setAttributeValue( ShipmentsBVO.NTAXNETPRICE,ntaxnetprice);
+ } 
+
+/** 
+* 获取主本币含税单价
+*
+* @return 主本币含税单价
+*/
+public UFDouble getNtaxprice () {
+return (UFDouble) this.getAttributeValue( ShipmentsBVO.NTAXPRICE);
+ } 
+
+/** 
+* 设置主本币含税单价
+*
+* @param ntaxprice 主本币含税单价
+*/
+public void setNtaxprice ( UFDouble ntaxprice) {
+this.setAttributeValue( ShipmentsBVO.NTAXPRICE,ntaxprice);
  } 
 
 /** 
