@@ -18,6 +18,10 @@ public UFBoolean blargessflag;
 */
 public UFBoolean blineclose;
 /**
+*三角贸易
+*/
+public static final String BTRIATRADEFLAG="btriatradeflag";
+/**
 *应收组织最新版本
 */
 public String carorgid;
@@ -58,6 +62,10 @@ public String cmaterialvid;
 */
 public String corigcurrencyid;
 /**
+*价格组成
+*/
+public static final String CPRICEFORMID="cpriceformid";
+/**
 *价格项目
 */
 public String cpriceitemid;
@@ -78,6 +86,14 @@ public String cprofitcenterid;
 */
 public String cprofitcentervid;
 /**
+*报价单位
+*/
+public static final String CQTUNITID="cqtunitid";
+/**
+*收货国家/地区
+*/
+public static final String CRECECOUNTRYID="crececountryid";
+/**
 *收货地址
 */
 public String creceiveaddrid;
@@ -97,6 +113,10 @@ public String creceivesiteid;
 *料比
 */
 public String csbomversionid;
+/**
+*发货国家/地区
+*/
+public static final String CSENDCOUNTRYID="csendcountryid";
 /**
 *发货库存组织最新版本
 */
@@ -129,6 +149,10 @@ public String csrcid;
 *税码
 */
 public String ctaxcodeid;
+/**
+*报税国家/地区
+*/
+public static final String CTAXCOUNTRYID="ctaxcountryid";
 /**
 *物流组织最新版本
 */
@@ -241,6 +265,10 @@ public UFDate dsenddate;
 *定金
 */
 public UFDouble earnestmoney;
+/**
+*购销类型
+*/
+public static final String FBUYSELLFLAG="fbuysellflag";
 /**
 *扣税类别
 */
@@ -402,6 +430,10 @@ public static final String NQTTAXNETPRICE="nqttaxnetprice";
 */
 public static final String NQTTAXPRICE="nqttaxprice";
 /**
+*报价单位数量
+*/
+public static final String NQTUNITNUM="nqtunitnum";
+/**
 *税额
 */
 public UFDouble ntax;
@@ -526,6 +558,10 @@ public String vfree8;
 */
 public String vfree9;
 /**
+*报价换算率
+*/
+public static final String VQTUNITRATE="vqtunitrate";
+/**
 *来源单据号
 */
 public String vsrccode;
@@ -575,6 +611,24 @@ return this.blineclose;
 */
 public void setBlineclose ( UFBoolean blineclose) {
 this.blineclose=blineclose;
+ } 
+
+/** 
+* 获取三角贸易
+*
+* @return 三角贸易
+*/
+public UFBoolean getBtriatradeflag () {
+return (UFBoolean) this.getAttributeValue( ShipmentsBVO.BTRIATRADEFLAG);
+ } 
+
+/** 
+* 设置三角贸易
+*
+* @param btriatradeflag 三角贸易
+*/
+public void setBtriatradeflag ( UFBoolean btriatradeflag) {
+this.setAttributeValue( ShipmentsBVO.BTRIATRADEFLAG,btriatradeflag);
  } 
 
 /** 
@@ -758,6 +812,24 @@ this.corigcurrencyid=corigcurrencyid;
  } 
 
 /** 
+* 获取价格组成
+*
+* @return 价格组成
+*/
+public String getCpriceformid () {
+return (String) this.getAttributeValue( ShipmentsBVO.CPRICEFORMID);
+ } 
+
+/** 
+* 设置价格组成
+*
+* @param cpriceformid 价格组成
+*/
+public void setCpriceformid ( String cpriceformid) {
+this.setAttributeValue( ShipmentsBVO.CPRICEFORMID,cpriceformid);
+ } 
+
+/** 
 * 获取价格项目
 *
 * @return 价格项目
@@ -848,6 +920,42 @@ this.cprofitcentervid=cprofitcentervid;
  } 
 
 /** 
+* 获取报价单位
+*
+* @return 报价单位
+*/
+public String getCqtunitid () {
+return (String) this.getAttributeValue( ShipmentsBVO.CQTUNITID);
+ } 
+
+/** 
+* 设置报价单位
+*
+* @param cqtunitid 报价单位
+*/
+public void setCqtunitid ( String cqtunitid) {
+this.setAttributeValue( ShipmentsBVO.CQTUNITID,cqtunitid);
+ } 
+
+/** 
+* 获取收货国家/地区
+*
+* @return 收货国家/地区
+*/
+public String getCrececountryid () {
+return (String) this.getAttributeValue( ShipmentsBVO.CRECECOUNTRYID);
+ } 
+
+/** 
+* 设置收货国家/地区
+*
+* @param crececountryid 收货国家/地区
+*/
+public void setCrececountryid ( String crececountryid) {
+this.setAttributeValue( ShipmentsBVO.CRECECOUNTRYID,crececountryid);
+ } 
+
+/** 
 * 获取收货地址
 *
 * @return 收货地址
@@ -935,6 +1043,24 @@ return this.csbomversionid;
 */
 public void setCsbomversionid ( String csbomversionid) {
 this.csbomversionid=csbomversionid;
+ } 
+
+/** 
+* 获取发货国家/地区
+*
+* @return 发货国家/地区
+*/
+public String getCsendcountryid () {
+return (String) this.getAttributeValue( ShipmentsBVO.CSENDCOUNTRYID);
+ } 
+
+/** 
+* 设置发货国家/地区
+*
+* @param csendcountryid 发货国家/地区
+*/
+public void setCsendcountryid ( String csendcountryid) {
+this.setAttributeValue( ShipmentsBVO.CSENDCOUNTRYID,csendcountryid);
  } 
 
 /** 
@@ -1079,6 +1205,24 @@ return this.ctaxcodeid;
 */
 public void setCtaxcodeid ( String ctaxcodeid) {
 this.ctaxcodeid=ctaxcodeid;
+ } 
+
+/** 
+* 获取报税国家/地区
+*
+* @return 报税国家/地区
+*/
+public String getCtaxcountryid () {
+return (String) this.getAttributeValue( ShipmentsBVO.CTAXCOUNTRYID);
+ } 
+
+/** 
+* 设置报税国家/地区
+*
+* @param ctaxcountryid 报税国家/地区
+*/
+public void setCtaxcountryid ( String ctaxcountryid) {
+this.setAttributeValue( ShipmentsBVO.CTAXCOUNTRYID,ctaxcountryid);
  } 
 
 /** 
@@ -1583,6 +1727,26 @@ return this.earnestmoney;
 */
 public void setEarnestmoney ( UFDouble earnestmoney) {
 this.earnestmoney=earnestmoney;
+ } 
+
+/** 
+* 获取购销类型
+*
+* @return 购销类型
+* @see String
+*/
+public Integer getFbuysellflag () {
+return (Integer) this.getAttributeValue( ShipmentsBVO.FBUYSELLFLAG);
+ } 
+
+/** 
+* 设置购销类型
+*
+* @param fbuysellflag 购销类型
+* @see String
+*/
+public void setFbuysellflag ( Integer fbuysellflag) {
+this.setAttributeValue( ShipmentsBVO.FBUYSELLFLAG,fbuysellflag);
  } 
 
 /** 
@@ -2308,6 +2472,24 @@ this.setAttributeValue( ShipmentsBVO.NQTTAXPRICE,nqttaxprice);
  } 
 
 /** 
+* 获取报价单位数量
+*
+* @return 报价单位数量
+*/
+public UFDouble getNqtunitnum () {
+return (UFDouble) this.getAttributeValue( ShipmentsBVO.NQTUNITNUM);
+ } 
+
+/** 
+* 设置报价单位数量
+*
+* @param nqtunitnum 报价单位数量
+*/
+public void setNqtunitnum ( UFDouble nqtunitnum) {
+this.setAttributeValue( ShipmentsBVO.NQTUNITNUM,nqtunitnum);
+ } 
+
+/** 
 * 获取税额
 *
 * @return 税额
@@ -2863,6 +3045,24 @@ return this.vfree9;
 */
 public void setVfree9 ( String vfree9) {
 this.vfree9=vfree9;
+ } 
+
+/** 
+* 获取报价换算率
+*
+* @return 报价换算率
+*/
+public String getVqtunitrate () {
+return (String) this.getAttributeValue( ShipmentsBVO.VQTUNITRATE);
+ } 
+
+/** 
+* 设置报价换算率
+*
+* @param vqtunitrate 报价换算率
+*/
+public void setVqtunitrate ( String vqtunitrate) {
+this.setAttributeValue( ShipmentsBVO.VQTUNITRATE,vqtunitrate);
  } 
 
 /** 
