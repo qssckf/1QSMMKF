@@ -2,8 +2,10 @@ package nc.bs.so.qs.sc.readyplan.bp;
 
 import java.util.Arrays;
 
+import nc.bs.bd.bp.rule.BDPKLockSuperVORule;
 import nc.bs.bd.bp.rule.NotNullValueRule;
 import nc.bs.bd.bp.rule.StringFieldTrimRule;
+import nc.bs.bd.bp.rule.VersionValidateRule;
 import nc.bs.bd.bp.rule.update.UpdateAuditInfoRule;
 import nc.bs.bd.bp.template.UpdateBPTemplate;
 import nc.bs.so.qs.readyplan.bp.rule.MakePMORdStatusChkRule;
@@ -40,6 +42,10 @@ public class RdReturnPMOBP {
 		// TODO 自动生成的方法存根
 		
 		aroundProcesser.addBeforeRule(new ReturnPMOStatusChkRule());
+		
+		aroundProcesser.addBeforeRule(new BDPKLockSuperVORule());
+		
+		aroundProcesser.addBeforeRule(new VersionValidateRule());
 		
 		aroundProcesser.addBeforeRule(new StringFieldTrimRule());
 		

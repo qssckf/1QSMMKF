@@ -6,6 +6,7 @@ import nc.bs.bd.bp.rule.BDPKLockSuperVORule;
 import nc.bs.bd.bp.rule.BizLockRule;
 import nc.bs.bd.bp.rule.NotNullValueRule;
 import nc.bs.bd.bp.rule.StringFieldTrimRule;
+import nc.bs.bd.bp.rule.VersionValidateRule;
 import nc.bs.bd.bp.rule.update.UpdateAuditInfoRule;
 import nc.bs.bd.bp.template.UpdateBPTemplate;
 import nc.bs.so.qs.sc.plugin.PBPluginPoint;
@@ -41,7 +42,9 @@ public class PlanBillUpdateBP {
 		
 		compareAroundProcesser.addBeforeRule(new StringFieldTrimRule());
 		
-//		compareAroundProcesser.addBeforeRule(new BDPKLockSuperVORule());
+		compareAroundProcesser.addBeforeRule(new BDPKLockSuperVORule());
+		
+		compareAroundProcesser.addBeforeRule(new VersionValidateRule());
 		
 		compareAroundProcesser.addBeforeRule(new NotNullValueRule(Arrays.asList(new String[] { "plandate", "bomid","vbomversion" })));
 		

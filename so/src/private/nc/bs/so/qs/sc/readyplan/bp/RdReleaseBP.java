@@ -1,5 +1,7 @@
 package nc.bs.so.qs.sc.readyplan.bp;
 
+import nc.bs.bd.bp.rule.BDPKLockSuperVORule;
+import nc.bs.bd.bp.rule.VersionValidateRule;
 import nc.bs.bd.bp.rule.update.UpdateAuditInfoRule;
 import nc.bs.so.qs.readyplan.bp.rule.MakePMOStatusChkRule;
 import nc.bs.so.qs.readyplan.bp.rule.SetBillStatusByPMORule;
@@ -44,6 +46,10 @@ public class RdReleaseBP {
 
 	private void addBeforeRule(AroundProcesser<RdPorductDetailVO> ard) {
 		// TODO 自动生成的方法存根
+		
+		ard.addBeforeRule(new BDPKLockSuperVORule());
+		
+		ard.addBeforeRule(new VersionValidateRule());
 		
 		ard.addBeforeRule(new StockOrgChkRule());
 		

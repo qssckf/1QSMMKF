@@ -2,7 +2,9 @@ package nc.bs.so.qs.sc.planbill.bp;
 
 import java.util.Arrays;
 
+import nc.bs.bd.bp.rule.BDPKLockSuperVORule;
 import nc.bs.bd.bp.rule.NotNullValueRule;
+import nc.bs.bd.bp.rule.VersionValidateRule;
 import nc.bs.bd.bp.template.UpdateBPTemplate;
 import nc.bs.so.qs.planbill.bp.rule.PlanBillExpendRule;
 import nc.bs.so.qs.planbill.bp.rule.PlanBillUnExpendRule;
@@ -29,12 +31,16 @@ public class PlanBillUnExpendBP {
 	private void addAfterRule(CompareAroundProcesser<MmPlanBillVO> aroundProcesser) {
 		// TODO 自动生成的方法存根
 		
-		aroundProcesser.addBeforeRule(new PlanBillUnExpendRule());
+		aroundProcesser.addAfterRule(new PlanBillUnExpendRule());
 		
 	}
 
 	private void addBeforeRule(CompareAroundProcesser<MmPlanBillVO> aroundProcesser) {
 		// TODO 自动生成的方法存根
+		
+		aroundProcesser.addBeforeRule(new BDPKLockSuperVORule());
+		
+		aroundProcesser.addBeforeRule(new VersionValidateRule());
 		
 		aroundProcesser.addBeforeRule(new NotNullValueRule(Arrays.asList(new String[] { "sfexand"})));
 
