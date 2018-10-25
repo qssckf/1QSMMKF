@@ -24,6 +24,7 @@ import nc.bs.so.fq.maintain.util.RewriteBillUtil;
  import nc.vo.scmpub.res.billtype.SOBillType;
  import nc.vo.so.m30.entity.SaleOrderBVO;
  import nc.vo.so.m30.entity.SaleOrderVO;
+import nc.vo.so.qs.sc.AggShipmentsVO;
 import nc.vo.trade.checkrule.VOChecker;
  
  
@@ -37,11 +38,11 @@ import nc.vo.trade.checkrule.VOChecker;
  
  
  public class RewriteBillUpdateRule
-   implements ICompareRule<SaleOrderVO>
+   implements ICompareRule<AggShipmentsVO>
  {
    public RewriteBillUpdateRule() {}
    
-   public void process(SaleOrderVO[] vos, SaleOrderVO[] originVOs)
+   public void process(AggShipmentsVO[] vos, AggShipmentsVO[] originVOs)
    {
      RewriteBillUtil rewriteUtil = new RewriteBillUtil();
      BillRewriter srctool = rewriteUtil.getSrcBillRewriter();

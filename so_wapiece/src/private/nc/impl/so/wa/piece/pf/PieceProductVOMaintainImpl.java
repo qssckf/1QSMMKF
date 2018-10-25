@@ -47,56 +47,55 @@ public class PieceProductVOMaintainImpl extends AcePieceProductVOPubServiceImpl 
   }
 
 
-@Override
-public String isHaveDefault(String pk_org) throws BusinessException {
+  @Override
+  public String isHaveDefault(String pk_org) throws BusinessException {
 	// TODO 自动生成的方法存根
 	
-	if (StringUtils.isEmpty(pk_org)) {
-		return null;
-	}
+	  if (StringUtils.isEmpty(pk_org)) {
+		  return null;
+	  }
 	
-	StringBuffer sql = new StringBuffer(" select ");
-	sql.append("pk_ppid");
-	sql.append(" from ").append("so_pd");
-	sql.append(" where ").append("pk_org");
-	sql.append("='").append(pk_org).append("' ");
-	sql.append(" and ").append("isdefault");
-	sql.append("='").append(UFBoolean.TRUE).append("'");
-	sql.append(" and dr=0 ");
-	
-	
-	try{
+	  StringBuffer sql = new StringBuffer(" select ");
+	  sql.append("pk_ppid");
+	  sql.append(" from ").append("so_pd");
+	  sql.append(" where ").append("pk_org");
+	  sql.append("='").append(pk_org).append("' ");
+	  sql.append(" and ").append("isdefault");
+	  sql.append("='").append(UFBoolean.TRUE).append("'");
+	  sql.append(" and dr=0 ");
+	  
+	  
+	  try{
 		
-		IRowSet row=this.getDataAcc().query(sql.toString());
+		  IRowSet row=this.getDataAcc().query(sql.toString());
 		
-		if(row.next()){
+		  if(row.next()){
 			
-			return row.getString(0);
+			  return row.getString(0);
 			
-		}else{
-			
+		  }else{
 			return null;
-			
-		}
+		  }
 		
-	}catch (Exception e) {
+	  }catch (Exception e) {
 		
-		throw new BusinessException(e.getMessage());
-	}
+		  throw new BusinessException(e.getMessage());
+	  }
 
 	
-}
+  }
 
 
-@Override
-public PieceProductVO setDefault(PieceProductVO pd) throws BusinessException {
+  @Override
+  public PieceProductVO setDefault(PieceProductVO pd) throws BusinessException {
 	// TODO 自动生成的方法存根
 	
+	  
 	
 	
 	
-	return null;
-}
+	  return null;
+  }
 
 
 
