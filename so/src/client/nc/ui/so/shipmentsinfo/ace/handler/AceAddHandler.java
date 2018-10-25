@@ -25,6 +25,7 @@ public class AceAddHandler implements IAppEventHandler<AddEvent> {
     panel.setHeadItem("approvestatus", BillStatusEnum.FREE.value());
     panel.setHeadItem("dbilldate", AppContext.getInstance().getBusiDate());
     panel.setHeadItem("fstatusflag", BillStatusEnum.FREE.value());
+
     
     
     //…Ë÷√≤ªø…±‡º≠◊÷∂Œ

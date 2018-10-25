@@ -4,6 +4,8 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.Action;
 
+import nc.bs.framework.common.NCLocator;
+import nc.itf.so.qs.sc.maschine.service.IMaschineMaintain;
 import nc.ui.pubapp.uif2app.actions.interceptor.ShowUpComponentInterceptor;
 import nc.ui.uif2.NCAction;
 import nc.ui.uif2.ShowStatusBarMsgUtil;
@@ -15,13 +17,12 @@ import nc.vo.so.qs.sc.AggMaschineVO;
 import nc.vo.so.qs.sc.MaschineVO;
 
 public class MaschineCardShowUpComponentInterceptor extends ShowUpComponentInterceptor {
-
 	@Override
 	public boolean beforeDoAction(Action action, ActionEvent e) {
 		// TODO 自动生成的方法存根
-		
+	
 		Integer status=null;
-		
+	
 		if(action instanceof EditAction){
 			
 			Object vo=((EditAction)action).getModel().getSelectedData();

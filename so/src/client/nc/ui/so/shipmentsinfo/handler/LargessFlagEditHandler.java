@@ -3,12 +3,13 @@ package nc.ui.so.shipmentsinfo.handler;
 /*    */ import nc.ui.pub.bill.BillCardPanel;
 /*    */ import nc.ui.pubapp.uif2app.event.card.CardBodyAfterEditEvent;
 /*    */ import nc.ui.pubapp.uif2app.event.card.CardBodyBeforeEditEvent;
-/*    */ import nc.ui.so.m38.billui.pub.PreOrderLarPriceConfig;
+///*    */ import nc.ui.so.m38.billui.pub.PreOrderLarPriceConfig;
 /*    */ import nc.ui.so.pub.keyvalue.CardKeyValue;
 /*    */ import nc.ui.so.pub.rule.LargessPirceRule;
+import nc.ui.so.qs.sc.shipments.billui.pub.ShipmentsLarPriceConfig;
 /*    */ import nc.vo.pub.lang.UFBoolean;
 /*    */ import nc.vo.pubapp.pattern.pub.PubAppTool;
-/*    */ import nc.vo.so.pub.keyvalue.IKeyValue;
+import nc.vo.so.pub.keyvalue.IKeyValue;
  
 /*    */ 
 /*    */ public class LargessFlagEditHandler {
@@ -37,7 +38,7 @@ package nc.ui.so.shipmentsinfo.handler;
 /*    */     
 /*    */ 
 /* 39 */     if ((null != largessflag) && (largessflag.booleanValue())) {
-/* 40 */       PreOrderLarPriceConfig config = new PreOrderLarPriceConfig(cardPanel);
+/* 40 */       ShipmentsLarPriceConfig config = new ShipmentsLarPriceConfig(cardPanel);
 /* 41 */       LargessPirceRule larpricerule = new LargessPirceRule(cardPanel, config);
 /* 42 */       int[] rows = { row };
 /*    */       

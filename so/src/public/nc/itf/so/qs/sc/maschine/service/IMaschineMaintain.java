@@ -1,6 +1,8 @@
 package nc.itf.so.qs.sc.maschine.service;
 
 //import nc.vo.pd.pd0404.entity.AggWkVO;
+import java.util.Map;
+
 import nc.bs.bd.service.ValueObjWithErrLog;
 import nc.vo.pub.BusinessException;
 import nc.vo.so.qs.sc.AggMaschineVO;
@@ -19,4 +21,6 @@ public abstract interface IMaschineMaintain
   public abstract AggMaschineVO unable(AggMaschineVO obj) throws BusinessException;
   
   public abstract AggMaschineVO disable(AggMaschineVO obj) throws BusinessException;
+  
+  public abstract Map<String, Object> getMaschinepkInfo(String maschine) throws Exception;
 }

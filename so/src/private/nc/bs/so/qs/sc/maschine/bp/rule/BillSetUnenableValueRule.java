@@ -1,11 +1,17 @@
 package nc.bs.so.qs.sc.maschine.bp.rule;
 
+import java.util.Map;
+
 import nc.bs.dao.BaseDAO;
 import nc.bs.dao.DAOException;
+import nc.bs.framework.common.NCLocator;
 import nc.impl.pubapp.pattern.rule.IRule;
+import nc.itf.so.qs.sc.maschine.service.IMaschineMaintain;
+import nc.vo.pub.BusinessException;
 import nc.vo.pubapp.pattern.exception.ExceptionUtils;
 import nc.vo.so.qs.sc.AggMaschineVO;
 //import nc.vo.so.xlx.tranflow.AggTranFlowVO;;
+import nc.vo.so.qs.sc.MaschineVO;
 
 public class BillSetUnenableValueRule implements IRule<AggMaschineVO>{
 
@@ -18,6 +24,17 @@ public class BillSetUnenableValueRule implements IRule<AggMaschineVO>{
 		}
 		return bao;
 	}
+	private IMaschineMaintain service;
+	
+	public IMaschineMaintain getService() {
+		
+		if(this.service==null){
+			this.service=NCLocator.getInstance().lookup(IMaschineMaintain.class);
+		}
+		
+		return service;
+	}
+
 
 	
 	@Override
@@ -27,9 +44,8 @@ public class BillSetUnenableValueRule implements IRule<AggMaschineVO>{
 		// TODO 自动生成的方法存根
 		
 		for(AggMaschineVO obj:objs){
-			
+
 			String sql=bulidSQL(obj.getParentVO().getTableName(),"mstatus","pk_org",obj.getParentVO().getPk_org(),"pk_group",obj.getParentVO().getPk_group(),"pk_maschine",obj.getParentVO().getPk_maschine());
-			
 			try {
 				getBao().executeUpdate(sql);
 			} catch (DAOException e) {

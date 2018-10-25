@@ -3,6 +3,12 @@ package nc.impl.so.qs.sc.maschine.bill;
 //import nc.bs.pd.pd0404.bp.PDWkDeleteBP;
 //import nc.bs.pd.pd0404.bp.PDWkInsertBP;
 //import nc.bs.pd.pd0404.bp.PDWkUpdateBP;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import nc.bs.bd.bp.utils.MDQueryUtil;
 import nc.bs.bd.service.ValueObjWithErrLog;
 //import nc.bs.scmpub.page.BillPageLazyQuery;
@@ -14,11 +20,13 @@ import nc.bs.so.qs.sc.maschine.bp.MaschineUnenableBP;
 import nc.bs.so.qs.sc.maschine.bp.MaschineUpdateBP;
 import nc.impl.pubapp.pattern.data.bill.BillLazyQuery;
 import nc.impl.pubapp.pattern.data.bill.tool.BillTransferTool;
+import nc.impl.pubapp.pattern.database.DataAccessUtils;
 //import nc.itf.pd.pd0404.IPDWkMaintain;
 import nc.util.mmf.framework.base.MMValueCheck;
 //import nc.vo.pd.pd0404.entity.AggWkVO;
 //import nc.vo.pd.pd0404.entity.WkProdinvVO;
 import nc.vo.pub.BusinessException;
+import nc.vo.pubapp.pattern.data.IRowSet;
 import nc.vo.pubapp.pattern.exception.ExceptionUtils;
 import nc.vo.util.BDPKLockUtil;
 import nc.vo.util.BDVersionValidationUtil;
@@ -31,8 +39,19 @@ import nc.vo.so.qs.sc.MaschineVO;
 
 
 public class MaschineMaintainImpl implements IMaschineMaintain {
+	
+	private DataAccessUtils dao;
+	
 	public MaschineMaintainImpl() {}
-  
+	
+	public DataAccessUtils getDao() {
+    	
+    	if(dao==null){
+    		dao=new DataAccessUtils();
+    	}
+		return dao;
+	}
+	
 	public AggMaschineVO[] insert(AggMaschineVO[] vos) throws BusinessException{
 		if (vos == null) {
 			return null;
@@ -163,5 +182,33 @@ public class MaschineMaintainImpl implements IMaschineMaintain {
 	} 
 	private IMDPersistenceQueryService getMDQueryService() {
 		return MDPersistenceService.lookupPersistenceQueryService();
+	}
+
+	@Override
+	public Map<String, Object> getMaschinepkInfo(String maschine) throws Exception {
+		// TODO 自动生成的方法存根
+		Map<String, Object> retobj=new HashMap();
+		
+		String sql="select a.pk_group,a.pk_org,a.pk_machine from so_rdpd a where pk_machine='"+maschine+"'";
+		
+		IRowSet rs=this.getDao().query(sql);
+		
+//		JSONArray jsonarry=new JSONArray();
+		
+		if(rs.next()){
+//			JSONObject json1=new JSONObject();
+			
+			retobj.put("pk_group", rs.getString(0));
+			retobj.put("pk_org", rs.getString(1));
+			retobj.put("pk_machine", rs.getString(2));	
+			
+			
+//			retobj.put("list", json1);
+						
+		}else{
+			throw new BusinessException("错误数据，未查询到这个数据！");
+		}
+			
+		return retobj;
 	}
 }

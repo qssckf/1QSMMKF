@@ -9,8 +9,10 @@ package nc.ui.so.shipmentsinfo.handler;
 /*    */ import nc.ui.so.pub.findprice.FindSalePrice;
 /*    */ import nc.ui.so.pub.keyvalue.CardKeyValue;
 /*    */ import nc.ui.so.pub.util.BodyEditEventUtil;
+import nc.ui.so.qs.sc.shipments.billui.pub.ShipmentsCalculator;
+import nc.ui.so.qs.sc.shipments.billui.pub.ShipmentsFindPriceConfig;
 /*    */ import nc.vo.so.pub.keyvalue.IKeyValue;
-/*    */ import nc.vo.so.pub.rule.SOUnitChangeRateRule;
+import nc.vo.so.pub.rule.SOUnitChangeRateRule;
 /*    */ 
 /*    */ public class AstUnitEditHandler
 /*    */ {
@@ -29,14 +31,14 @@ package nc.ui.so.shipmentsinfo.handler;
 /* 29 */       raterule.calcQtChangeRate(row);
 /*    */     }
 /*    */     
-///* 32 */     PreOrderCalculator calculator = new PreOrderCalculator(cardPanel);
-///* 33 */     calculator.calculate(rows, "vchangerate");
-///*    */     
-///* 35 */     calculator.calculate(rows, "vqtunitrate");
-///*    */     
-///* 37 */     PreOrderFindPriceConfig config = new PreOrderFindPriceConfig(cardPanel);
-///* 38 */     FindSalePrice findprice = new FindSalePrice(cardPanel, config);
-///* 39 */     findprice.findPriceAfterEdit(rows, "cqtunitid");
+/* 32 */     ShipmentsCalculator calculator = new ShipmentsCalculator(cardPanel);
+/* 33 */     calculator.calculate(rows, "vchangerate");
+/*    */     
+/* 35 */     calculator.calculate(rows, "vqtunitrate");
+/*    */     
+/* 37 */     ShipmentsFindPriceConfig config = new ShipmentsFindPriceConfig(cardPanel);
+/* 38 */     FindSalePrice findprice = new FindSalePrice(cardPanel, config);
+/* 39 */     findprice.findPriceAfterEdit(rows, "cqtunitid");
 /*    */   }
 /*    */   
 /*    */   public void beforeEdit(CardBodyBeforeEditEvent e)
