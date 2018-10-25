@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
+	<classpathentry kind="src" output="so_wapiece/classes" path="so_wapiece/src/public"/>
+	<classpathentry kind="src" output="so_wapiece/classes" path="so_wapiece/src/client"/>
+	<classpathentry kind="src" output="so_wapiece/classes" path="so_wapiece/src/private"/>
+	<classpathentry kind="src" output="so_wapiece/classes" path="so_wapiece/resources"/>
+	<classpathentry kind="src" output="so_wapiece/classes" path="so_wapiece/src/test"/>
 	<classpathentry kind="src" output="so/classes" path="so/src/public"/>
 	<classpathentry kind="src" output="so/classes" path="so/src/client"/>
 	<classpathentry kind="src" output="so/classes" path="so/src/private"/>

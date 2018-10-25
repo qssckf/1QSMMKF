@@ -7,7 +7,6 @@ package nc.qs.sc.bill.data.access;
 
 import nc.bill.data.access.BatchGetMeteDataRelationItemVaules;
 import nc.bill.data.access.BillAccessRefBatchMatch;
-import nc.bill.data.access.BillAccessUtil;
 import nc.bill.data.access.ComboBoxBillItemUtil;
 import nc.bill.data.access.GetMeteDataRelationItemVaule;
 /*     */ import nc.bill.data.access.formula.FormulaProc;

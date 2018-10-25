@@ -1118,7 +1118,7 @@
 /* 1101 */     bean.setFlowBillType(false);
 /* 1102 */     bean.setModel(getManageAppModel());
 /* 1103 */     bean.setEditor(getBillFormEditor());
-/* 1104 */     bean.setTransferViewProcessor(getTransferProcessorforZ3());
+/* 1104 */     bean.setTransferViewProcessor(getTransferProcessorforFQ());
 /* 1105 */     setBeanFacotryIfBeanFacatoryAware(bean);
 /* 1106 */     invokeInitializingBean(bean);
 /* 1107 */     return bean;
@@ -1272,6 +1272,17 @@
 /* 1255 */     invokeInitializingBean(bean);
 /* 1256 */     return bean;
 /*      */   }
+
+			public nc.ui.so.m30.billui.tranferbill.M30RefFRTRansferBillDataLogic getTransferLogicforFQ() { 
+				if (this.context.get("transferLogicforFQ") != null)
+/* 1250 */       return (nc.ui.so.m30.billui.tranferbill.M30RefFRTRansferBillDataLogic)this.context.get("transferLogicforFQ");
+/* 1251 */     nc.ui.so.m30.billui.tranferbill.M30RefFRTRansferBillDataLogic bean = new nc.ui.so.m30.billui.tranferbill.M30RefFRTRansferBillDataLogic();
+/* 1252 */     this.context.put("transferLogicforFQ", bean);
+/* 1253 */     bean.setBillForm(getBillFormEditor());
+/* 1254 */     setBeanFacotryIfBeanFacatoryAware(bean);
+/* 1255 */     invokeInitializingBean(bean);
+/* 1256 */     return bean;
+/*      */   }
 /*      */   
 /*      */   public nc.ui.pubapp.billref.dest.TransferViewProcessor getTransferProcessorfor38() {
 /* 1260 */     if (this.context.get("transferProcessorfor38") != null)
@@ -1282,6 +1293,24 @@
 /* 1265 */     bean.setActionContainer(getActionsOfList());
 /* 1266 */     bean.setCardActionContainer(getActionsOfCard());
 /* 1267 */     bean.setTransferLogic(getTransferLogicfor38());
+/* 1268 */     bean.setBillForm(getBillFormEditor());
+/* 1269 */     bean.setCancelAction(getCancelAction());
+/* 1270 */     bean.setSaveAction(getSaveAction());
+/* 1271 */     bean.setCommitAction(getSendApproveAction());
+/* 1272 */     setBeanFacotryIfBeanFacatoryAware(bean);
+/* 1273 */     invokeInitializingBean(bean);
+/* 1274 */     return bean;
+/*      */   }
+
+			public nc.ui.pubapp.billref.dest.TransferViewProcessor getTransferProcessorforFQ() {
+/* 1260 */     if (this.context.get("transferProcessorforFQ") != null)
+/* 1261 */       return (nc.ui.pubapp.billref.dest.TransferViewProcessor)this.context.get("transferProcessorforFQ");
+/* 1262 */     nc.ui.pubapp.billref.dest.TransferViewProcessor bean = new nc.ui.pubapp.billref.dest.TransferViewProcessor();
+/* 1263 */     this.context.put("transferProcessorforFQ", bean);
+/* 1264 */     bean.setList(getListView());
+/* 1265 */     bean.setActionContainer(getActionsOfList());
+/* 1266 */     bean.setCardActionContainer(getActionsOfCard());
+/* 1267 */     bean.setTransferLogic(getTransferLogicforFQ());
 /* 1268 */     bean.setBillForm(getBillFormEditor());
 /* 1269 */     bean.setCancelAction(getCancelAction());
 /* 1270 */     bean.setSaveAction(getSaveAction());

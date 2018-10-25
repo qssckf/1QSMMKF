@@ -16,7 +16,7 @@ public class M30RefFQ01SourceRefDlg extends SourceRefDlg{
 
 	public String getRefBillInfoBeanPath(){  
 		
-		return "nc/ui/so/m38/billref/m30/M30Ref38Info.xml";
+		return "nc/ui/so/fq01/billref/m30/M30RefFQInfo.xml";
 		
 	}  
 

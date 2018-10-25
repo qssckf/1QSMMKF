@@ -62,7 +62,7 @@ public class SaleOrderAddFromFQ01Action extends AbstractReferenceAction{
 		String vtrantype = TrantypeFuncUtils.getTrantype(getModel().getContext());
 	   
 		if (StringUtil.isEmptyWithTrim(vtrantype)) {
-			context.setCurrBilltype("FQ01");
+			context.setCurrBilltype(SOBillType.Order.getCode());
 		}else {
 			context.setCurrBilltype(vtrantype);
 		}
