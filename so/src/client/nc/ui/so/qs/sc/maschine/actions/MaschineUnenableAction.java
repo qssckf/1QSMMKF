@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 //import nc.ui.so.xlx.tran.tranflow.ace.serviceproxy.AceTranFlowMaintainProxy;
 import nc.bs.framework.common.NCLocator;
@@ -23,6 +24,7 @@ import nc.ui.uif2.NCAction;
 import nc.ui.uif2.UIState;
 import nc.vo.pub.BusinessException;
 import nc.vo.pub.lang.UFBoolean;
+import nc.vo.pubapp.pattern.data.IRowSet;
 //import nc.vo.so.xlx.tranflow.AggTranFlowVO;
 //import nc.vo.so.xlx.tranflow.TranFlowVO;
 import nc.vo.so.qs.sc.AggMaschineVO;
@@ -35,7 +37,7 @@ public class MaschineUnenableAction extends SetBillValueAction {
 	private MaschineModelDataManager dataManager;
 	
 	private IMaschineMaintain service;
-	
+		
 	public IMaschineMaintain getService() {
 		
 		if(this.service==null){
@@ -57,8 +59,6 @@ public class MaschineUnenableAction extends SetBillValueAction {
 	public void setDataManager(MaschineModelDataManager dataManager) {
 		this.dataManager = dataManager;
 	}
-	
-
 
 	@Override
 	public void doSetValue() throws Exception {
@@ -77,42 +77,31 @@ public class MaschineUnenableAction extends SetBillValueAction {
 	private void setEnable(AggMaschineVO agg) throws BusinessException {
 		// TODO 自动生成的方法存根		
 	
+	  
+		MaschineVO maschine=agg.getParentVO();
+		
+		String pkmaschine=maschine.getPk_maschine();
+		
+		try {
+			Map<String,Object> masMap = getService().getMaschinepkInfo(pkmaschine);
+			
+			for(Map.Entry<String, Object> entry : masMap.entrySet()){
+				String masKey= entry.getKey();
+				if(masKey.toString().equals("pk_machine")){
+					Object masObj = entry.getValue();
+//					MessageDialog.showErrorDlg(getModel().getContext().getEntranceUI(), "错误", "数据已被引用！");
+					throw new BusinessException("错误,数据已被引用！");
+				}
+			}
+
+		} catch (Exception e) {
+			// TODO 自动生成的 catch 块
+			throw new BusinessException(e.getMessage());
+		}
 		AggMaschineVO retobj=this.getService().unable(agg);
-	  
-		MaschineVO maschine=retobj.getParentVO();
-	  
-//		List<AggMaschineVO> list= ((MaschineBillManageModel)getModel()).getData();
-//	  
-//		if ((null == list) || (list.size() == 0)) {
-//			return;
-//		}
-//	   
-//		List<String> updatePks = new ArrayList();
-//		String pk = null;
-//		MaschineVO temp = null;
-//		for (AggMaschineVO aggVO : list) {
-//			temp = (MaschineVO)aggVO.getParentVO();
-//		  	pk = temp.getPk_maschine();
-//		  	  
-//		  	if (("0".equals(temp.getMstatus())) && (null != pk) && (!pk.equals(maschine.getPk_maschine())))
-//		  	{
-//		  		updatePks.add(pk);
-//		  	}
-//		}
-//	   
-//	   if (updatePks.size() > 0) {
-// 	 
-//		   Object[] objs = ((MaschineQueryService)getDataManager().getPageQuery()).queryObjectByPks((String[])updatePks.toArray(new String[updatePks.size()]));
-//	  	 
-//		   getModel().directlyUpdate(objs);
-//	   }
-	   
-	   agg.setParentVO(maschine);
-	   getModel().directlyUpdate(retobj);
-	  
-		
-		
-		
+		agg.setParentVO(maschine);
+		getModel().directlyUpdate(retobj);
+
 	}
 
 	@Override
@@ -126,4 +115,5 @@ public class MaschineUnenableAction extends SetBillValueAction {
 	    
 	    return (getModel().getUiState() == UIState.NOT_EDIT) && ("1".toString().equals(mstatus.toString()));
 	}
+
 }

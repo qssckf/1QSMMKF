@@ -12,6 +12,7 @@ package nc.ui.so.shipmentsinfo.handler;
 /*     */ import nc.ui.pubapp.uif2app.event.card.CardBodyAfterEditEvent;
 /*     */ import nc.ui.pubapp.uif2app.event.card.CardBodyBeforeEditEvent;
 ///*     */ import nc.ui.so.m38.billui.pub.PreOrderCalculator;
+import nc.ui.so.qs.sc.shipments.billui.pub.ShipmentsCalculator;
 /*     */ import nc.ui.so.pub.keyvalue.CardKeyValue;
 /*     */ import nc.ui.so.pub.util.BodyEditEventUtil;
 /*     */ import nc.vo.pub.BusinessException;
@@ -25,9 +26,9 @@ package nc.ui.so.shipmentsinfo.handler;
 /*     */ import nc.vo.so.pub.rule.SOExchangeRateRule;
 /*     */ import nc.vo.so.pub.rule.SOGlobalExchangeRate;
 /*     */ import nc.vo.so.pub.rule.SOGroupExchangeRate;
-/*     */ import nc.vo.so.pub.rule.SOTaxInfoRule;
+///*     */ import nc.vo.so.pub.rule.SOTaxInfoRule;
 /*     */ import nc.vo.so.pub.rule.SaleOrgRelationRule;
-/*     */ import nc.vo.trade.checkrule.VOChecker;
+import nc.vo.trade.checkrule.VOChecker;
 /*     */ 
 /*     */ 
 /*     */ 
@@ -41,7 +42,7 @@ package nc.ui.so.shipmentsinfo.handler;
 /*  41 */     BillCardPanel cardPanel = e.getBillCardPanel();
 /*  42 */     IKeyValue keyValue = new CardKeyValue(cardPanel);
 /*     */     
-///*  44 */     PreOrderCalculator calculator = new PreOrderCalculator(cardPanel);
+/*  44 */     ShipmentsCalculator calculator = new ShipmentsCalculator(cardPanel);
 /*     */     
 /*     */ 
 /*  47 */     for (int row : rows) {
@@ -75,13 +76,13 @@ package nc.ui.so.shipmentsinfo.handler;
 /*  75 */     buyflgrule.setBuysellAndTriaFlag(rows);
 /*     */     
 /*  77 */     int[] buysellrows = buyflgrule.getBuysellChgRow();
-///*  78 */     calculator.calculate(buysellrows, SOCalConditionRule.getCalPriceKey());
+/*  78 */     calculator.calculate(buysellrows, SOCalConditionRule.getCalPriceKey());
 /*     */     
 /*     */ 
-/*  81 */     SOTaxInfoRule taxInfo = new SOTaxInfoRule(keyValue);
-/*  82 */     taxInfo.setTaxInfoByBodyPos(rows);
+///*  81 */     SOTaxInfoRule taxInfo = new SOTaxInfoRule(keyValue);
+///*  82 */     taxInfo.setTaxInfoByBodyPos(rows);
 /*     */     
-/*  84 */     int[] taxchgrows = taxInfo.getTaxChangeRows();
+///*  84 */     int[] taxchgrows = taxInfo.getTaxChangeRows();
 ///*  85 */     calculator.calculate(taxchgrows, "ntaxrate");
 /*     */     
 /*  87 */     List<Integer> listchgrow = new ArrayList();
@@ -111,7 +112,7 @@ package nc.ui.so.shipmentsinfo.handler;
 /* 111 */       if (globalerate.isGlobalExchgRateChange("ccurrencyid")) {
 /* 112 */         globalerate.calcGlobalExchangeRate(chgrows);
 /*     */       }
-///* 114 */       calculator.calculate(chgrows, "nexchangerate");
+/* 114 */       calculator.calculate(chgrows, "nexchangerate");
 /*     */     }
 /*     */   }
 /*     */   

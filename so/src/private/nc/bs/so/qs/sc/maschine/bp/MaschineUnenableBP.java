@@ -37,14 +37,13 @@ public class MaschineUnenableBP {
 
 	private void addBeforeRule(CompareAroundProcesser<AggMaschineVO> Processer) {
 		// TODO 自动生成的方法存根
-		
-		
-		
+
 		Processer.addBeforeRule(new MaschineFlowBusLockRule());
-		
+				
 		Processer.addBeforeRule(new BillCheckVOConsistence());
 		
 		Processer.addBeforeRule(new BillSetUnenableValueRule());
+		
 		
 		BillVOSetValue bs=new BillVOSetValue();
 		

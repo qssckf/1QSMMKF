@@ -19,6 +19,7 @@ import nc.ui.so.pub.findprice.FindSalePrice;
 import nc.ui.so.pub.keyvalue.CardKeyValue;
 import nc.ui.so.qs.sc.shipments.billui.pub.BodyDefaultRule;
 import nc.ui.so.qs.sc.shipments.billui.pub.ClearBodyValueRule;
+import nc.ui.so.qs.sc.shipments.billui.pub.ShipmentsFindPriceConfig;
 import nc.vo.pub.BusinessException;
 import nc.vo.pub.lang.UFBoolean;
 import nc.vo.pub.lang.UFDouble;
@@ -42,6 +43,7 @@ import nc.vo.so.pub.rule.SOTaxInfoRule;
 import nc.vo.so.pub.rule.SOUnitChangeRateRule;
 import nc.vo.so.pub.rule.SOUnitDefaultRule;
 import nc.vo.so.pub.rule.SaleOrgRelationRule;
+import nc.vo.so.qs.sc.FQ01.keyrela.ShipmentsKeyrela;
 
 public class MaterialEditHandler
 {
@@ -77,9 +79,9 @@ public class MaterialEditHandler
     custrefrule.setRelaReceiveCust(rows);
     
     //收货地点
-//    IKeyRela keyRela = new PreOrderKeyrela();
-//    ReceiveCustDefAddrRule defaddrule = new ReceiveCustDefAddrRule(keyValue, keyRela);
-//    defaddrule.setCustDefaultAddress(rows);
+    IKeyRela keyRela = new ShipmentsKeyrela();
+    ReceiveCustDefAddrRule defaddrule = new ReceiveCustDefAddrRule(keyValue, keyRela);
+    defaddrule.setCustDefaultAddress(rows);
     
     SaleOrgRelationRule orgrelarule = new SaleOrgRelationRule(keyValue);
     orgrelarule.setFinanceStockTrafficOrg(rows, GetRelationOrg(keyValue, rows));
@@ -106,13 +108,13 @@ public class MaterialEditHandler
     SOBuysellTriaRule buyflgrule = new SOBuysellTriaRule(keyValue);
     buyflgrule.setBuysellAndTriaFlag(rows);
     
-//    SOTaxInfoRule taxInfo = new SOTaxInfoRule(keyValue);
-//    taxInfo.setTaxInfoByBodyPos(rows);
+    SOTaxInfoRule taxInfo = new SOTaxInfoRule(keyValue);
+    taxInfo.setTaxInfoByBodyPos(rows);
     
 
-//    PreOrderFindPriceConfig config = new PreOrderFindPriceConfig(cardPanel);
-//    FindSalePrice findPrice = new FindSalePrice(cardPanel, config);
-//    findPrice.findPriceAfterEdit(rows, "cmaterialvid");
+    ShipmentsFindPriceConfig config = new ShipmentsFindPriceConfig(cardPanel);
+    FindSalePrice findPrice = new FindSalePrice(cardPanel, config);
+    findPrice.findPriceAfterEdit(rows, "cmaterialvid");
     
 
     SOCustMaterialInfoRule socustmar = new SOCustMaterialInfoRule(keyValue);
