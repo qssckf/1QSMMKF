@@ -13,8 +13,9 @@ import nc.pubitf.so.fq.so.m30.Rewrite30Para;
 /*     */ import nc.vo.pubapp.pattern.pub.MathTool;
 import nc.vo.so.pub.enumeration.BillStatus;
 import nc.vo.so.qs.sc.AggShipmentsVO;
+import nc.vo.so.qs.sc.DeliverReViewVO;
 import nc.vo.so.qs.sc.ShipmentsBVO;
-import nc.vo.so.qs.sc.ShipmentsViewVO;
+
 /*     */ 
 /*     */ 
 /*     */ 
@@ -70,7 +71,7 @@ import nc.vo.so.qs.sc.ShipmentsViewVO;
 /*     */ 
 /*     */ 
 /*     */ 
-/*     */   public boolean isAutoTransitRowClose(ShipmentsViewVO view)
+/*     */   public boolean isAutoTransitRowClose(DeliverReViewVO view)
 /*     */   {
 /*  77 */     return BillStatus.CLOSED.equalsValue(view.getHead().getFstatusflag());
 /*     */   }
@@ -80,7 +81,7 @@ import nc.vo.so.qs.sc.ShipmentsViewVO;
 /*     */ 
 /*     */ 
 /*     */ 
-/*     */   public boolean isAutoTransitRowOpen(ShipmentsViewVO view)
+/*     */   public boolean isAutoTransitRowOpen(DeliverReViewVO view)
 /*     */   {
 /*  87 */     return BillStatus.AUDIT.equalsValue(view.getHead().getFstatusflag());
 /*     */   }
@@ -93,7 +94,7 @@ import nc.vo.so.qs.sc.ShipmentsViewVO;
 /*     */ 
 /*     */ 
 /*     */ 
-/*     */   public boolean isRowClose(ShipmentsViewVO view)
+/*     */   public boolean isRowClose(DeliverReViewVO view)
 /*     */   {
 			
 /* 103 */     ShipmentsBVO item = view.getItem();
@@ -112,7 +113,7 @@ import nc.vo.so.qs.sc.ShipmentsViewVO;
 /*     */ 
 /*     */ 
 /*     */ 
-/*     */   public boolean isRowOpen(ShipmentsViewVO view)
+/*     */   public boolean isRowOpen(DeliverReViewVO view)
 /*     */   {
 /* 121 */     ShipmentsBVO item = view.getItem();
 /* 122 */     Rewrite30Para para = (Rewrite30Para)getRewrite30Paras().get(item.getPk_shipments_b());

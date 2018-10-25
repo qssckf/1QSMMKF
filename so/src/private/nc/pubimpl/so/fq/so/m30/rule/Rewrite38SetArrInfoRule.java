@@ -13,7 +13,6 @@ import nc.pubitf.so.fq.so.m30.RewritefqPara;
  import nc.vo.so.m38.entity.PreOrderBVO;
 import nc.vo.so.m38.entity.PreOrderViewVO;
 import nc.vo.so.qs.sc.ShipmentsBVO;
-import nc.vo.so.qs.sc.ShipmentsViewVO;
  
  
  

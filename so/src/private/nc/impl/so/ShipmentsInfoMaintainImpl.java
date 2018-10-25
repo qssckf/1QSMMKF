@@ -13,9 +13,9 @@ import nc.vo.so.m38.entity.PreOrderVO;
 import nc.vo.so.m38.entity.PreOrderViewVO;
 import nc.vo.so.pub.enumeration.BillStatus;
 import nc.vo.so.qs.sc.AggShipmentsVO;
+import nc.vo.so.qs.sc.DeliverReViewVO;
 import nc.vo.so.qs.sc.ShipmentsBVO;
 import nc.vo.so.qs.sc.ShipmentsVO;
-import nc.vo.so.qs.sc.ShipmentsViewVO;
 import nc.impl.pubapp.pattern.data.bill.BillLazyQuery;
 import nc.pubimpl.so.fq.so.m30.rule.Rewrite38RowStateRule;
 import nc.pubimpl.so.fq.so.m30.rule.Rewrite38SetArrInfoRule;
@@ -117,14 +117,14 @@ public class ShipmentsInfoMaintainImpl extends AceShipmentsInfoPubServiceImpl im
 		
 		  String ordersql = createOrderSql(queryScheme);
 		  
-		  SchemeViewQuery<ShipmentsViewVO> query = new SchemeViewQuery(ShipmentsViewVO.class);
-		  ShipmentsViewVO[] views=(ShipmentsViewVO[])query.query(queryScheme, ordersql);
+		  SchemeViewQuery<DeliverReViewVO> query = new SchemeViewQuery(DeliverReViewVO.class);
+		  DeliverReViewVO[] views=(DeliverReViewVO[])query.query(queryScheme, ordersql);
 		  
 		  if (org.apache.commons.lang.ArrayUtils.isEmpty(views)) {
 			  return null;
 		  }
 		  
-		  for(ShipmentsViewVO view:views){
+		  for(DeliverReViewVO view:views){
 			  
 			  ShipmentsVO headvo=view.getHead();
 			  ShipmentsBVO bodyvo=view.getItem();
@@ -268,14 +268,14 @@ public class ShipmentsInfoMaintainImpl extends AceShipmentsInfoPubServiceImpl im
 	    return bids;
 	}
 	
-	private ShipmentsViewVO[] query(Map<String, Rewrite30Para> index) {
+	private DeliverReViewVO[] query(Map<String, Rewrite30Para> index) {
 	  
 		String[] ids = lockBills(index);
-		ViewQuery<ShipmentsViewVO> bo = new ViewQuery(ShipmentsViewVO.class);
+		ViewQuery<DeliverReViewVO> bo = new ViewQuery(DeliverReViewVO.class);
 	  
 		bo.setSharedHead(true);
 	  
-		ShipmentsViewVO[] views = (ShipmentsViewVO[])bo.query(ids);
+		DeliverReViewVO[] views = (DeliverReViewVO[])bo.query(ids);
 		
 		if (views.length != index.size()) {
 			String message = NCLangRes4VoTransl.getNCLangRes().getStrByID("4006012_0", "04006012-0031");
@@ -295,10 +295,10 @@ public class ShipmentsInfoMaintainImpl extends AceShipmentsInfoPubServiceImpl im
 	    TimeLog.info("并处理参数");
 	    
 	    TimeLog.logStart();
-	    ShipmentsViewVO[] views = query(index);
+	    DeliverReViewVO[] views = query(index);
 	    TimeLog.info("查询发货申请表体");
 	    
-	    AroundProcesser<ShipmentsViewVO> processer = new AroundProcesser(ServicePlugInPoint.rewriteFQNarrnumFor30);
+	    AroundProcesser<DeliverReViewVO> processer = new AroundProcesser(ServicePlugInPoint.rewriteFQNarrnumFor30);
 	    
 	
 	    addRule(processer, views);
@@ -311,8 +311,8 @@ public class ShipmentsInfoMaintainImpl extends AceShipmentsInfoPubServiceImpl im
 	    String[] names = { "narrnum", "carrangeid", "darrdate" };
 	    
 	
-	    ViewUpdate<ShipmentsViewVO> bo = new ViewUpdate();
-	    views = (ShipmentsViewVO[])bo.update(views, ShipmentsBVO.class, names);
+	    ViewUpdate<DeliverReViewVO> bo = new ViewUpdate();
+	    views = (DeliverReViewVO[])bo.update(views, ShipmentsBVO.class, names);
 	    TimeLog.info("更新数据库");
 	    
 	    TimeLog.logStart();
@@ -323,10 +323,10 @@ public class ShipmentsInfoMaintainImpl extends AceShipmentsInfoPubServiceImpl im
 	    BSContext.getInstance().removeSession(Rewrite30Para.class.getName());
 	}
 	
-	private void addRule(AroundProcesser<ShipmentsViewVO> processer,ShipmentsViewVO[] views) {
+	private void addRule(AroundProcesser<DeliverReViewVO> processer,DeliverReViewVO[] views) {
 		// TODO 自动生成的方法存根
 
-		IRule<ShipmentsViewVO> rule = new RewriteSetArrInfoRule();
+		IRule<DeliverReViewVO> rule = new RewriteSetArrInfoRule();
 		processer.addBeforeRule(rule);
 		
 		rule = new RewriteRowStateRule();

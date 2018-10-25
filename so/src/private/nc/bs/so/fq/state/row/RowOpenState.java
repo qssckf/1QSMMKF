@@ -6,20 +6,21 @@ package nc.bs.so.fq.state.row;
 import nc.bs.so.fq.plugin.StatePlugInPoint;
 import nc.bs.so.fq.state.pub.BillStateUtil;
 import nc.bs.so.fq.state.pub.StateCalculateUtil;
- import nc.impl.pubapp.bill.state.AbstractRowState;
- import nc.impl.pubapp.bill.state.IState;
- import nc.impl.pubapp.bill.state.ITransitionState;
- import nc.impl.pubapp.pattern.rule.processer.AroundProcesser;
- import nc.vo.pub.lang.UFBoolean;
+import nc.impl.pubapp.bill.state.AbstractRowState;
+import nc.impl.pubapp.bill.state.IState;
+import nc.impl.pubapp.bill.state.ITransitionState;
+import nc.impl.pubapp.pattern.rule.processer.AroundProcesser;
+import nc.vo.pub.lang.UFBoolean;
 import nc.vo.pubapp.pattern.log.TimeLog;
 import nc.vo.so.m38.entity.PreOrderViewVO;
 import nc.vo.so.qs.sc.AggShipmentsVO;
 import nc.vo.so.qs.sc.AggShipmentsVOMeta;
+import nc.vo.so.qs.sc.DeliverReViewVO;
 import nc.vo.so.qs.sc.ShipmentsBVO;
-import nc.vo.so.qs.sc.ShipmentsViewVO;
+
  
 
- public class RowOpenState extends AbstractRowState<ShipmentsViewVO> implements ITransitionState<ShipmentsViewVO, ShipmentsViewVO>
+ public class RowOpenState extends AbstractRowState<DeliverReViewVO> implements ITransitionState<DeliverReViewVO, AggShipmentsVO>
  {
    private StateCalculateUtil stateCalculateUtil;
    
@@ -31,7 +32,7 @@ import nc.vo.so.qs.sc.ShipmentsViewVO;
  
 
    
-   public boolean isAutoTransitable(ShipmentsViewVO vo)
+   public boolean isAutoTransitable(DeliverReViewVO vo)
    {
      if ((isThisState(vo)) || (!isPrevStateValid(vo))) {
        return false;
@@ -40,7 +41,7 @@ import nc.vo.so.qs.sc.ShipmentsViewVO;
    }
    
  
-   public boolean isPrevStateValid(ShipmentsViewVO vo)
+   public boolean isPrevStateValid(DeliverReViewVO vo)
    {
      BillStateUtil statePriority = new BillStateUtil();
      return statePriority.canBeExecuteState(vo);
@@ -48,7 +49,7 @@ import nc.vo.so.qs.sc.ShipmentsViewVO;
    
  
  
-   public boolean isRowOpen(ShipmentsViewVO vo)
+   public boolean isRowOpen(DeliverReViewVO vo)
    {
      if ((isThisState(vo)) || (!isPrevStateValid(vo))) {
        return false;
@@ -56,19 +57,19 @@ import nc.vo.so.qs.sc.ShipmentsViewVO;
      return getStateCalculateUtil().isRowOpen(vo);
    }
    
-   public List<IState<ShipmentsViewVO>> next()
+   public List<IState<DeliverReViewVO>> next()
    {
-     List<IState<ShipmentsViewVO>> list = new ArrayList();
+     List<IState<DeliverReViewVO>> list = new ArrayList();
      
      return list;
    }
    
-   public void setState(ShipmentsViewVO[] views)
+   public void setState(DeliverReViewVO[] views)
    {
-     AroundProcesser<ShipmentsViewVO> processer = new AroundProcesser(StatePlugInPoint.RowOpenState);
+     AroundProcesser<DeliverReViewVO> processer = new AroundProcesser(StatePlugInPoint.RowOpenState);
      
      TimeLog.logStart();
-     ShipmentsViewVO[] vos = (ShipmentsViewVO[])processer.before(views);
+     DeliverReViewVO[] vos = (DeliverReViewVO[])processer.before(views);
      TimeLog.info("行打开前执行业务规则");
      
      TimeLog.logStart();
@@ -92,7 +93,7 @@ import nc.vo.so.qs.sc.ShipmentsViewVO;
 
 
    @Override
-   public IState<ShipmentsViewVO> getTransitTargetState() {
+   public IState<AggShipmentsVO> getTransitTargetState() {
 	// TODO 自动生成的方法存根
 	   return null;
    }

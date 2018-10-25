@@ -3,8 +3,8 @@ package nc.bs.so.fq.state.pub;
 
 /*    */ import nc.vo.so.pub.enumeration.BillStatus;
 import nc.vo.so.qs.sc.AggShipmentsVOMeta;
+import nc.vo.so.qs.sc.DeliverReViewVO;
 import nc.vo.so.qs.sc.ShipmentsVO;
-import nc.vo.so.qs.sc.ShipmentsViewVO;
 /*    */ 
 /*    */ 
 /*    */ 
@@ -24,7 +24,7 @@ import nc.vo.so.qs.sc.ShipmentsViewVO;
 /* 23 */     return flag;
 /*    */   }
 /*    */   
-/*    */   public boolean canBeExecuteState(ShipmentsViewVO view) {
+/*    */   public boolean canBeExecuteState(DeliverReViewVO view) {
 /* 27 */     boolean flag = canBeExecuteState(view.getHead());
 /* 28 */     return flag;
 /*    */   }

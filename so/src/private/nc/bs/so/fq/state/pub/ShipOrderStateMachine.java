@@ -4,21 +4,21 @@ import nc.impl.pubapp.bill.state.IState;
 import nc.vo.so.m38.entity.PreOrderVO;
 import nc.vo.so.m38.entity.PreOrderViewVO;
 import nc.vo.so.qs.sc.AggShipmentsVO;
-import nc.vo.so.qs.sc.ShipmentsViewVO;
+import nc.vo.so.qs.sc.DeliverReViewVO;
 
 
 
 public class ShipOrderStateMachine {
 	
-	private nc.impl.pubapp.bill.state.TwainStateMachine<AggShipmentsVO, ShipmentsViewVO> machine;
+	private nc.impl.pubapp.bill.state.TwainStateMachine<AggShipmentsVO, DeliverReViewVO> machine;
 	
 	public ShipOrderStateMachine(){
 		
-		this.machine = new nc.impl.pubapp.bill.state.TwainStateMachine(AggShipmentsVO.class, ShipmentsViewVO.class);
+		this.machine = new nc.impl.pubapp.bill.state.TwainStateMachine(AggShipmentsVO.class, DeliverReViewVO.class);
 		
 	}
 	
-	public void setState(IState<ShipmentsViewVO> state, ShipmentsViewVO[] vos){
+	public void setState(IState<DeliverReViewVO> state, DeliverReViewVO[] vos){
 		this.machine.setRowState(state, vos);
 	}
 	
